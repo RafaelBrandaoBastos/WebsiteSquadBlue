@@ -1,11 +1,11 @@
 import React from "react";
 import {ContainerCard, CardStyled} from "./cardStyled";
 
-export const Card = ()=>{
+export const Card = ({children})=>{
     
     return(
         <ContainerCard>
-             <CardStyled/>
+             <CardStyled>{children}</CardStyled>
         </ContainerCard>
     )
 }

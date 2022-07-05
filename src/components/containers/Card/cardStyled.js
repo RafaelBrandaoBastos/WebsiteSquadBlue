@@ -5,6 +5,11 @@ width: 61.7rem;
 height: 73.9rem;
 background: #FFFFFF;
 border-radius: 20px;
+
+@media (max-width: 600px){
+width:100vw;
+height:100vh;
+}
 `;
 
 export const ContainerCard = styled.div`
