@@ -13,6 +13,7 @@ export const Checkmark = styled.span`
 
 export const CustomCheckbox = styled.label`
     display: flex;
+    width: fit-content;
     align-items: center;
     cursor: pointer;
 
