@@ -2,7 +2,7 @@ import React from "react";
 import FunctionForm from "./components/containers/form/form";
 
 function App() {
-    return <></>;
+    return <FunctionForm/>;
 }
 
 export default App;
