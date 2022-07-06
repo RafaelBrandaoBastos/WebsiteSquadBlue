@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-    height: 100%;
+    height: 60%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -9,19 +9,8 @@ export const Form = styled.form`
     width: 100%;
 `;
 
-export const ContainerFullName = styled.div`
-    width: 100%;
-    outline-style: solid;
-    outline-color: blue;
-`;
-
-export const ContainerNickname = styled.div`
-    width: 100%;
-    outline-style: solid;
-    outline-color: blue;
-`;
-
 export const ContainerEmailPhone = styled.div`
+    justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -31,28 +20,29 @@ export const ContainerEmailPhone = styled.div`
 
 export const DayMonth = styled.div`
     display: flex;
-    width: 50%;
+    width: 47.5%;
     outline-style: solid;
     outline-color: blue;
+    justify-content: space-between;
+    margin-top: 0px;
     @media (max-width: 600px) {
         width: 100%;
+        margin-top: 10px;
         }
 `;
-
 export const YearAge = styled.div`
     display: flex;
-    width: 50%;
+    width: 47.5%;
     outline-style: solid;
     outline-color: blue;
+    justify-content: space-between;
     @media (max-width: 600px) {
         width: 100%;
         }
 `;
 
-
-
 export const ContainerEmail = styled.div`
-    width: 50%;
+    width: 60%;
     outline-style: solid;
     outline-color: blue;
     @media (max-width: 600px) {
@@ -60,32 +50,23 @@ export const ContainerEmail = styled.div`
         }
 `;
 export const ContainerPhone = styled.div`
-    width: 50%;
+    width: 35%;
+    margin-top: 0px;
     @media (max-width: 600px) {
+        margin-top: 10px;
         width: 100%;
         }
 `;
 export const ContainerDay = styled.div`
-    width: 50%;
-    @media (max-width: 600px) {
-        width: 100%;
-        }
+    width: 45%;
 `;
 export const ContainerMonth = styled.div`
-    width: 50%;
-    @media (max-width: 600px) {
-        width: 100%;
-        }
+    width: 45%;
 `;
 export const ContainerYear = styled.div`
-    width: 50%;
-    @media (max-width: 600px) {
-        width: 100%;
-        }
+    width: 45%;
+
 `;
 export const ContainerAge = styled.div`
-    width: 50%;
-    @media (max-width: 600px) {
-        width: 100%;
-        }
+    width: 45%;
 `;

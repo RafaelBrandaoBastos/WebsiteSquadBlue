@@ -12,9 +12,11 @@ export const InputGlobal = styled.input`
 export const Label = styled.label`
     font-family: "Nunito";
     font-style: "regular";
-    font-size: 1.0rem;
-    color: #AAAAAA;
+    font-size: 1.6rem;
+    color: #767676;
 `;
 export const Container = styled.div`
-    width: 100%;
+    outline-style: solid;
+    outline-color: red;
+    
 `;

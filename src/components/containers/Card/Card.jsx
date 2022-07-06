@@ -1,11 +1,14 @@
 import React from "react";
 import {ContainerCard, CardStyled} from "./cardStyled";
+import FormBasic from "../FormBasic/form";
 
-const Card = ({children})=>{
+const Card = ({})=>{
     
     return(
-        <ContainerCard>
-             <CardStyled>{children}</CardStyled>
+        <ContainerCard>    
+            <CardStyled>
+                <FormBasic />
+            </CardStyled>
         </ContainerCard>
     )
 }
