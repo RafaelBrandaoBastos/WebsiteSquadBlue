@@ -1,7 +1,7 @@
 import React from "react";
 import {ContainerCard, CardStyled} from "./cardStyled";
 
-export const Card = ({children})=>{
+const Card = ({children})=>{
     
     return(
         <ContainerCard>
@@ -9,4 +9,6 @@ export const Card = ({children})=>{
         </ContainerCard>
     )
 }
+
+export default Card;
 
