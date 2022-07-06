@@ -11,13 +11,11 @@ export const Tab = styled.button`
     outline: 0;
     cursor: pointer;
 
-    ${({active}) =>
-        active &&
-        `
-    border-bottom: 3px solid #074EE8;
-		color: #074EE8;
-    opacity: 1;
-  `}
+    &.active {
+        border-bottom: 3px solid #074ee8;
+        color: #074ee8;
+        opacity: 1;
+    }
 `;
 
 export const TabGroup = styled.div`
