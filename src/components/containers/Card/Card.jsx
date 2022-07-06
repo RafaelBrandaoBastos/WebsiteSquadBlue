@@ -1,12 +1,20 @@
 import React from "react";
 import {ContainerCard, CardStyled} from "./cardStyled";
+import FormBasic from "../FormBasic/form";
+import  Title  from "../../micro/Title/Title";
+import Tabs from "../../micro/Tabs/Tabs";
 
-export const Card = ({children})=>{
+const Card = ({})=>{
     
     return(
-        <ContainerCard>
-             <CardStyled>{children}</CardStyled>
+        <ContainerCard>    
+            <CardStyled>
+                <Title/>
+                <Tabs/>
+            </CardStyled>
         </ContainerCard>
     )
 }
+
+export default Card;
 
