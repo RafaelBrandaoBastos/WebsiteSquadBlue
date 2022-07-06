@@ -7,14 +7,15 @@ background: #FFFFFF;
 border-radius: 2rem;
 padding: 5.6rem 5.7rem 3.6rem 4.5rem;
 display: flex;
-align-items: center;
 justify-content: center;
+flex-direction: column;
+
 
 @media (max-width: 600px){
 width:100vw;
 height:100vh;
 border-radius: 0;
-padding: 5.6rem 5.7rem 3.6rem 4.5rem;
+padding: 10%;
 }
 `;
 

@@ -1,8 +1,14 @@
-import React from "react";
-import Card from "./components/containers/Card/Card.jsx"
+import TabsProvider from './contexts/TabsProvider';
+import Card from './components/containers/Card/Card';
 
 function App() {
-    return <Card/>;
+    return (
+      
+            <TabsProvider>
+                <Card/>
+            </TabsProvider>
+    
+    );
 }
 
 export default App;
