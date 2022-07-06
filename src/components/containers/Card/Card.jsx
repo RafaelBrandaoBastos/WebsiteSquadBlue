@@ -1,8 +1,8 @@
 import React from "react";
 import {ContainerCard, CardStyled} from "./cardStyled";
-import FormBasic from "../FormBasic/form";
 import  Title  from "../../micro/Title/Title";
 import Tabs from "../../micro/Tabs/Tabs";
+import Button from "../../micro/Button/Button";
 
 const Card = ({})=>{
     
@@ -11,6 +11,7 @@ const Card = ({})=>{
             <CardStyled>
                 <Title/>
                 <Tabs/>
+                <Button name="Next" type="submit"/>
             </CardStyled>
         </ContainerCard>
     )
