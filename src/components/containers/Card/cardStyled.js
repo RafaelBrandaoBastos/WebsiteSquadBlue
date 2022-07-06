@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CardStyled = styled.div`
-width: 50.7rem;
-height: 55.9rem;
+width: 61.7rem;
+height: 73.9rem;
 background: #FFFFFF;
 border-radius: 2rem;
 padding: 5.6rem 5.7rem 3.6rem 4.5rem;
@@ -11,6 +11,7 @@ padding: 5.6rem 5.7rem 3.6rem 4.5rem;
 width:100vw;
 height:100vh;
 border-radius: 0;
+padding: 15.4rem 24.9rem 29.1rem 23.6rem;
 }
 `;
 
