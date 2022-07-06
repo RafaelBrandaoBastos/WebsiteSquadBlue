@@ -3,7 +3,6 @@ import Input from "../../micro/input/input"
 import {Form, ContainerFullName, ContainerNickname, ContainerEmailPhone, DayMonth, YearAge, ContainerEmail, ContainerPhone, ContainerDay, ContainerMonth, ContainerYear, ContainerAge} from "./formStyled.js"
 
 const FunctionForm = ()=>{
-
     return( 
         <Form>
 
@@ -45,7 +44,6 @@ const FunctionForm = ()=>{
                 </ContainerAge>
             </YearAge>
         </Form> 
-
     )
 };
   
