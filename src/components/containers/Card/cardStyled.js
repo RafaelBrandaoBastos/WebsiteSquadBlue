@@ -7,7 +7,7 @@ background: #FFFFFF;
 border-radius: 2rem;
 padding: 5.6rem 5.7rem 3.6rem 4.5rem;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 flex-direction: column;
 
 
