@@ -1,8 +1,8 @@
 import React from "react";
-import FunctionForm from "./components/containers/form/form";
+import Card from "./components/containers/Card/Card.jsx"
 
 function App() {
-    return <></>;
+    return <Card/>;
 }
 
 export default App;
