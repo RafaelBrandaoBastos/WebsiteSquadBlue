@@ -8,7 +8,7 @@ justify-content: flex-end;
 flex-direction: column;
 width: 100%;
 outline-style: solid;
-outline-color: yellow;
+height: 7%;
 `;
 
 export const ButtonStyled = styled.button`
