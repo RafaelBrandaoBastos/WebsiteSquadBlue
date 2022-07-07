@@ -11,7 +11,6 @@ const Card = ({})=>{
             <CardStyled>
                 <Title/>
                 <Tabs/>
-                <Button name="Next" type="submit"/>
             </CardStyled>
         </ContainerCard>
     )

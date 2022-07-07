@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-    height: 60%;
+    min-height: 80%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -18,6 +18,22 @@ export const ContainerEmailPhone = styled.div`
     outline-color: blue;
 `;
 
+export const ContainerPhone = styled.div`
+    width: 35%;
+    margin-top: 0px;
+    @media (max-width: 600px) {
+        margin-top: 10px;
+        width: 100%;
+        }
+`;
+export const ContainerEmail = styled.div`
+    width: 60%;
+    outline-style: solid;
+    outline-color: blue;
+    @media (max-width: 600px) {
+        width: 100%;
+        }
+`;
 export const DayMonth = styled.div`
     display: flex;
     width: 47.5%;
@@ -41,22 +57,6 @@ export const YearAge = styled.div`
         }
 `;
 
-export const ContainerEmail = styled.div`
-    width: 60%;
-    outline-style: solid;
-    outline-color: blue;
-    @media (max-width: 600px) {
-        width: 100%;
-        }
-`;
-export const ContainerPhone = styled.div`
-    width: 35%;
-    margin-top: 0px;
-    @media (max-width: 600px) {
-        margin-top: 10px;
-        width: 100%;
-        }
-`;
 export const ContainerDay = styled.div`
     width: 45%;
 `;

@@ -1,5 +1,6 @@
 import React from "react";
-import Input from "../../micro/Input/Input"
+import Input from "../../micro/Input/Input";
+import Button from "../../micro/Button/Button";
 import {Form, ContainerEmailPhone, DayMonth, YearAge, ContainerEmail, ContainerPhone, ContainerDay, ContainerMonth, ContainerYear, ContainerAge} from "./formStyled.js"
 
 const FormBasic = ()=>{
@@ -34,7 +35,9 @@ const FormBasic = ()=>{
                     <Input width="100%" height = "40px" label = "Age" type="number" placeholder="18" />
                 </ContainerAge>
             </YearAge>
+            <Button name="Next" type="submit"/>    
         </Form> 
+        
     )
 };
   

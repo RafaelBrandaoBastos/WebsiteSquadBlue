@@ -5,6 +5,9 @@ export const ContainerButton = styled.div`
 display:flex;
 align-items: flex-end;
 flex-direction: column;
+width: 100%;
+outline-style: solid;
+outline-color: yellow;
 `;
 
 export const ButtonStyled = styled.button`
@@ -26,7 +29,6 @@ background-image: url(${NextIcon});
 background-repeat: no-repeat;
 background-position: 3.5em;
 background-size: contain;
-margin-top: 30%;
 
 &:hover {
     cursor: pointer;
