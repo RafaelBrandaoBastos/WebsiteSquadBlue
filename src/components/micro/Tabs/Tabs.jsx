@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {Tab, TabGroup} from './tabsStyled';
 import {TabsContext} from '../../../contexts/TabsProvider';
-import FormBasic from '../../containers/FormBasic/form';
+import FormBasic from '../../containers/FormBasic/Form';
 
 const options = ['Basic', 'Social', 'Certificates'];
 
