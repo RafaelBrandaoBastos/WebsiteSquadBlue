@@ -7,6 +7,9 @@ export const Form = styled.form`
     flex-wrap: wrap;
     outline-style: solid;
     width: 100%;
+    @media (max-width: 600px) {
+        min-height: 85%;
+        }
 `;
 
 export const ContainerEmailPhone = styled.div`

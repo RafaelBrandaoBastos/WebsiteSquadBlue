@@ -16,7 +16,7 @@ flex-direction: column;
 width:100vw;
 height:100vh;
 border-radius: 0;
-padding: 10%;
+padding: 6% 10% 6% 10%;
 }
 `;
 

@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 export const ContainerTitle = styled.div`
 margin-bottom: 5%;
+@media (max-width: 600px){
+    margin-bottom: 0;
+}
 `;
 
 export const TitleStyled = styled.h1`
