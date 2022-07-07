@@ -6,7 +6,6 @@ export const ContainerTitle = styled.div`
         margin-bottom: 0.1rem;
     }
 `;
-
 export const TitleStyled = styled.h1`
     font-size: 1.8rem;
     color: #111111;
