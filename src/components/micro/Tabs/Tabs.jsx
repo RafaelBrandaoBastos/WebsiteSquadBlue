@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import {Tab, TabGroup} from './tabsStyled';
 import {TabsContext} from '../../../contexts/TabsProvider';
+import FormBasic from '../../containers/FormBasic/form';
 
 const options = ['Basic', 'Social', 'Certificates'];
 
@@ -24,7 +25,7 @@ const Tabs = () => {
                     </Tab>
                 ))}
             </TabGroup>
-            {selectedTab === 0 && 'inserir componente Basic'}
+            {selectedTab === 0 && <FormBasic />}
             {selectedTab === 1 && 'inserir componente Social'}
             {selectedTab === 2 && 'inserir componente Certificates'}
         </>
