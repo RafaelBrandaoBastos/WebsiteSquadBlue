@@ -31,4 +31,7 @@ export const HiddenCheckbox = styled.input`
 export const Terms = styled.span`
     margin-left: 0.8rem;
     display: inline-block;
+    @media (max-width: 300px) {
+        font-size: 1.4rem;
+    }
 `;
