@@ -21,5 +21,5 @@ export const Tab = styled.button`
 export const TabGroup = styled.div`
     display: flex;
     max-width: 51.5rem;
-    margin-bottom: 5%;
+    margin-bottom: 6%;
 `;
