@@ -4,6 +4,7 @@ import NextIcon from "../../../assets/nextIcon.svg";
 export const ContainerButton = styled.div`
 display:flex;
 align-items: flex-end;
+justify-content: flex-end;
 flex-direction: column;
 width: 100%;
 outline-style: solid;

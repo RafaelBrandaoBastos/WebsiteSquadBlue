@@ -58,8 +58,6 @@ export const YearAge = styled.div`
 `;
 
 export const ContainerDay = styled.div`
-    outline-style: solid;
-    outline-color: blue;
     width: 45%;
 `;
 export const ContainerMonth = styled.div`
