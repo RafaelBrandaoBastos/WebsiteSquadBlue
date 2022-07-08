@@ -1,30 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Form = styled.form`
-    min-height: 80%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    gap: 2.5rem;
     @media (max-width: 600px) {
-        min-height: 85%;
-        }
+        gap: 1rem;
+    }
 `;
 
 export const ContainerName = styled.div`
     position: relative;
     width: 100%;
     @media (max-width: 600px) {
-        height: 8%;
-        }
+    }
 `;
 
 export const ContainerNickname = styled.div`
     position: relative;
     width: 100%;
     @media (max-width: 600px) {
-        height: 8%;
-        }
+    }
 `;
 
 export const ContainerEmailPhone = styled.div`
@@ -33,25 +30,23 @@ export const ContainerEmailPhone = styled.div`
     flex-wrap: wrap;
     width: 100%;
     @media (max-width: 600px) {
-        height: 24%;
-        }
+        gap: 1rem;
+    }
 `;
 
 export const ContainerPhone = styled.div`
     position: relative;
     width: 35%;
-    margin-top: 0px;
     @media (max-width: 600px) {
         width: 100%;
-        }
+    }
 `;
 export const ContainerEmail = styled.div`
     width: 60%;
     position: relative;
-    margin-bottom: 5px;
     @media (max-width: 600px) {
         width: 100%;
-        }
+    }
 `;
 export const DayMonth = styled.div`
     display: flex;
@@ -59,7 +54,7 @@ export const DayMonth = styled.div`
     justify-content: space-between;
     @media (max-width: 600px) {
         width: 100%;
-        }
+    }
 `;
 export const YearAge = styled.div`
     display: flex;
@@ -67,7 +62,7 @@ export const YearAge = styled.div`
     justify-content: space-between;
     @media (max-width: 600px) {
         width: 100%;
-        }
+    }
 `;
 
 export const ContainerDay = styled.div`
@@ -83,26 +78,15 @@ export const ContainerAge = styled.div`
     width: 45%;
 `;
 export const ErrorMessage = styled.span`
-font-family: 'Nunito';
-display: flex;
-width: 100%;
-font-style: normal;
-align-items: flex-start;
-font-weight: 700;
-font-size: 1.4rem;
-line-height: 24px;
-text-align: center;
-color: red;
-position: absolute;
-top: 0;
-left: 30px;
+    position: absolute;
+    font-size: 1.4rem;
+    color: red;
+    top: 1px;
 `;
 export const Label = styled.p`
     width: 100%;
-    height: 5%;
     font-size: 1.8rem;
     color: #767676;
-    font-style: normal;
     margin: 0px;
 `;
 export const ContainerBirthday = styled.div`
@@ -111,4 +95,13 @@ export const ContainerBirthday = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+`;
+
+export const ContainerButton = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 `;
