@@ -6,6 +6,7 @@ export const Checkmark = styled.span`
     border: 2px solid #a5a5a5;
     display: inline-block;
     border-radius: 2px;
+
     background: #ffffff
         url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png)
         center/1250% no-repeat;
@@ -16,7 +17,6 @@ export const CustomCheckbox = styled.label`
     width: fit-content;
     align-items: center;
     cursor: pointer;
-    outline-style: solid;
 
     input:checked + ${Checkmark} {
         background-color: #074ee8;
@@ -32,4 +32,7 @@ export const HiddenCheckbox = styled.input`
 export const Terms = styled.span`
     margin-left: 0.8rem;
     display: inline-block;
+    @media (max-width: 300px) {
+        font-size: 1.4rem;
+    }
 `;

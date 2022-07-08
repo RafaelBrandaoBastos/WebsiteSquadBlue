@@ -73,6 +73,7 @@ export const ButtonReturnStyled = styled(ButtonFinishStyled)`
 width: 9.7rem;
 `;
 
+
 export const ButtonCertificatesStyled = styled(ButtonMoreStyled)`
 width: 12.9rem;
 height: 4rem;
@@ -84,3 +85,5 @@ padding-left: 1.2rem;
 justify-content: left;
 
 `;
+
+
