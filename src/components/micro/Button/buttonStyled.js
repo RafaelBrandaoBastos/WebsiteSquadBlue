@@ -7,7 +7,6 @@ align-items: flex-end;
 justify-content: flex-end;
 flex-direction: column;
 width: 100%;
-outline-style: solid;
 height: 7%;
 `;
 
