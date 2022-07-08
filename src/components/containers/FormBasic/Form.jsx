@@ -30,7 +30,7 @@ const schema = yup
     .object({
         name: yup
             .string()
-            .required('Please enter your name')
+            .required('Please enter your Name')
             .matches(/^[\w]+(?:\s[\w]+)+$/, 'Fullname invalid'),
         nickname: yup.string().matches(),
         email: yup
@@ -40,19 +40,38 @@ const schema = yup
                 /^[a-z0-9._-]+(?:\.[a-z0-9._-]+)*@(?:[a-z0-9](?:[a-z-]*[a-z])?.)+[a-z](?:[a-z]*[a-z]){1,}?$/,
                 'Email invalid',
             ),
-        password: yup
-            .string()
-            .matches(/^[0-9]{6,9}$/, 'Password invalid')
-            .required('Password invalid'),
         phone: yup
             .string()
-            .matches(/^([(][0-9]{2}[)]) ([0-9]{5})-([0-9]{4})/, 'Phone invalid')
-            .required(),
-        day: yup.number(),
-        month: yup.number(),
-        year: yup.number(),
-        age: yup.number(),
-        checkbox: yup.boolean().isTrue('You must agree with terms'),
+            .optional()
+            .matches(
+                /^([(][0-9]{2}[)]) ([0-9]{5})-([0-9]{4})/,
+                'Phone invalid',
+            ),
+        day: yup
+            .number()
+            .positive()
+            .integer()
+            .required('Please enter your age')
+            .typeError('Please enter your age'),
+        month: yup
+            .number()
+            .positive()
+            .integer()
+            .required('Please enter your age')
+            .typeError('Please enter your age'),
+        year: yup
+            .number()
+            .positive()
+            .integer()
+            .required('Please enter your age')
+            .typeError('Please enter your age'),
+        age: yup
+            .number()
+            .positive()
+            .integer()
+            .required('Please enter your age')
+            .typeError('Please enter your age'),
+        checkbox: yup.boolean().isTrue('Please confirm the terms'),
     })
     .required();
 
@@ -96,7 +115,11 @@ const FormBasic = () => {
                     placeholder='Juanito'
                     {...{register: register('nickname')}}
                 />
-                <ErrorMessage style={{left: '75px'}}>Invalid</ErrorMessage>
+                {errors.nickname && (
+                    <ErrorMessage style={{left: '75px'}}>
+                        {errors.nickname?.message}
+                    </ErrorMessage>
+                )}
             </ContainerNickname>
 
             <ContainerEmailPhone>
@@ -108,7 +131,11 @@ const FormBasic = () => {
                         placeholder='foo@bar.com'
                         {...{register: register('email')}}
                     />
-                    <ErrorMessage style={{left: '50px'}}>Invalid</ErrorMessage>
+                    {errors.email && (
+                        <ErrorMessage style={{left: '50px'}}>
+                            {errors.email?.message}
+                        </ErrorMessage>
+                    )}
                 </ContainerEmail>
                 <ContainerPhone>
                     <Input
@@ -118,13 +145,21 @@ const FormBasic = () => {
                         placeholder='(83 0000-0000)'
                         {...{register: register('phone')}}
                     />
-                    <ErrorMessage style={{left: '55px'}}>Invalid</ErrorMessage>
+                    {errors.phone && (
+                        <ErrorMessage style={{left: '55px'}}>
+                            {errors.phone?.message}
+                        </ErrorMessage>
+                    )}
                 </ContainerPhone>
             </ContainerEmailPhone>
 
             <ContainerBirthday>
                 <Label>Birthday</Label>
-                <ErrorMessage style={{left: '80px'}}>Invalid</ErrorMessage>
+                {errors.day && (
+                    <ErrorMessage style={{left: '80px'}}>
+                        {errors.day?.message}
+                    </ErrorMessage>
+                )}
                 <DayMonth>
                     <ContainerDay>
                         <Input
@@ -167,6 +202,11 @@ const FormBasic = () => {
                 </YearAge>
             </ContainerBirthday>
             <Checkbox {...{register: register('checkbox')}} />
+            {errors.checkbox && (
+                <ErrorMessage style={{left: '55px'}}>
+                    {errors.checkbox?.message}
+                </ErrorMessage>
+            )}
             <ContainerButton>
                 <Button name='Next' type='submit' />
             </ContainerButton>
