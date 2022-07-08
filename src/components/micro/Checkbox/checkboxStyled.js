@@ -6,6 +6,7 @@ export const Checkmark = styled.span`
     border: 2px solid #a5a5a5;
     display: inline-block;
     border-radius: 2px;
+
     background: #ffffff
         url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png)
         center/1250% no-repeat;
