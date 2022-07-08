@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonNextStyled, ButtonMoreStyled, ButtonFinishStyled, ButtonReturnStyled } from "./buttonStyled";
+import { ButtonNextStyled, ButtonMoreStyled, ButtonFinishStyled, ButtonReturnStyled, ButtonCertificatesStyled } from "./buttonStyled";
 import {TbPlus} from "react-icons/tb";
 import {MdNavigateNext} from "react-icons/md";
 
@@ -27,6 +27,11 @@ const Button = (props)=>{
     if (props.name=="Return")
     return(
       <ButtonReturnStyled  name={props.name} type={props.type}> {props.name}</ButtonReturnStyled> 
+    )
+
+    if (props.name=="Certificates")
+    return(
+      <ButtonCertificatesStyled name={props.name} type={props.type}> {props.name}</ButtonCertificatesStyled>
     )
 }
 
