@@ -20,6 +20,7 @@ import {
     ContainerAge,
     ErrorMessage,
     ContainerButton,
+    ContainerCheckbox,
 } from './formStyled.js';
 
 import {useForm} from 'react-hook-form';
@@ -141,8 +142,9 @@ const FormBasic = () => {
                     <Input
                         width='100%'
                         label='Phone'
-                        type='number'
+                        type='tel'
                         placeholder='(83 0000-0000)'
+                        onChangeCapture={(e) => phoneMask(e)}
                         {...{register: register('phone')}}
                     />
                     {errors.phone && (
@@ -201,12 +203,14 @@ const FormBasic = () => {
                     </ContainerAge>
                 </YearAge>
             </ContainerBirthday>
-            <Checkbox {...{register: register('checkbox')}} />
-            {errors.checkbox && (
-                <ErrorMessage style={{left: '55px'}}>
-                    {errors.checkbox?.message}
-                </ErrorMessage>
-            )}
+            <ContainerCheckbox>
+                <Checkbox {...{register: register('checkbox')}} />
+                {errors.checkbox && (
+                    <ErrorMessage style={{right: '90px'}} className='checkbox'>
+                        {errors.checkbox?.message}
+                    </ErrorMessage>
+                )}
+            </ContainerCheckbox>
             <ContainerButton>
                 <Button name='Next' type='submit' />
             </ContainerButton>
