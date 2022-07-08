@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {Tab, TabGroup} from './tabsStyled';
 import {TabsContext} from '../../../contexts/TabsProvider';
-import FormBasic from '../../containers/FormBasic/form';
+import FormCertificates from '../../containers/FormCertificates/form';
 
 const options = ['Basic', 'Social', 'Certificates'];
 
@@ -25,9 +25,9 @@ const Tabs = () => {
                     </Tab>
                 ))}
             </TabGroup>
-            {selectedTab === 0 && <FormBasic />}
-            {selectedTab === 1 && 'inserir componente Social'}
-            {selectedTab === 2 && 'inserir componente Certificates'}
+            {selectedTab === 0 && "a"}
+            {selectedTab === 1 && "a"}
+            {selectedTab === 2 && <FormCertificates />}
         </>
     );
 };

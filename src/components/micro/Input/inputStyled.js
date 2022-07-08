@@ -17,6 +17,4 @@ export const Label = styled.label`
     color: #767676;
 `;
 export const Container = styled.div`
-    outline-style: solid;
-    outline-color: red;
 `;
