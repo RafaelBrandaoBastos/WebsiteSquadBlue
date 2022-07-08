@@ -71,4 +71,4 @@ background-size: contain;
 export const ButtonReturnStyled = styled(ButtonFinishStyled)`
 width: 9.7rem;
 `;
->>>>>>> develop
+
