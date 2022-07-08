@@ -7,7 +7,7 @@ import {MdNavigateNext} from "react-icons/md";
 const Button = (props)=>{
     if(props.name=="Next")
     return(
-      <ButtonNextStyled name={props.name} type={props.type}>{props.name}</ButtonNextStyled>
+    <ButtonNextStyled name={props.name} type={props.type}>{props.name}</ButtonNextStyled>
     )
 
     if(props.name=="More")
