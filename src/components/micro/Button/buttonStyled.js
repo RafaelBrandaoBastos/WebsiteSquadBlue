@@ -67,3 +67,7 @@ background-size: contain;
     background-color: #20b7d8;
 }
 `;
+
+export const ButtonReturnStyled = styled(ButtonFinishStyled)`
+width: 9.7rem;
+`;
