@@ -11,24 +11,31 @@ export const ContainerHeader = styled.header`
   justify-content: center;
 
   @media (max-width: 600px) and (max-height: 900px) {
-    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    height: 3.5rem;
   }
 `;
 
 export const SmallTitleHeader = styled.h3`
   font-family: "Inter";
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   line-height: 2.4rem;
   color: #111111;
-  margin-bottom: 0.4rem;
-  margin-top: 0;
+  margin: 0;
+  margin-right: 0.5rem;
 `;
 
 export const BigestTitleHeader = styled.h1`
   font-family: "Inter";
   font-weight: 700;
   font-size: 4rem;
-  line-height: 4.8rem;
   color: #074ee8;
   margin: 0;
+
+  @media (max-width: 600px) and (max-height: 900px) {
+    font-size: 1.8rem;
+  }
 `;
