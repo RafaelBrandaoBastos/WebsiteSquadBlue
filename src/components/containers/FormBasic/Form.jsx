@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import * as yup from 'yup';
 import Input from '../../micro/Input/Input';
 import Button from '../../micro/Button/Button';
@@ -26,6 +26,7 @@ import {
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
+import {UserDataContext} from '../../../contexts/UserDataProvider';
 import {phoneMask} from '../../../utils/phoneMask';
 
 const schema = yup
@@ -74,6 +75,7 @@ const schema = yup
     .required();
 
 const FormBasic = () => {
+    const [userData, setUserData] = useContext(UserDataContext);
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
 
     const {
@@ -81,12 +83,24 @@ const FormBasic = () => {
         handleSubmit,
         watch,
         formState: {errors},
+        setValue,
     } = useForm({resolver: yupResolver(schema)});
 
     const onSubmit = (data) => {
+        setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
-        console.log(data);
     };
+
+    // Volta informações para os campos
+
+    useEffect(() => {
+        if (userData) {
+            const keys = Object.keys(userData);
+            keys.forEach((key) => {
+                setValue(key, userData[key]);
+            });
+        }
+    });
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
