@@ -26,6 +26,7 @@ import {
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
+import {phoneMask} from '../../../utils/phoneMask';
 
 const schema = yup
     .object({
@@ -41,13 +42,8 @@ const schema = yup
                 /^[a-z0-9._-]+(?:\.[a-z0-9._-]+)*@(?:[a-z0-9](?:[a-z-]*[a-z])?.)+[a-z](?:[a-z]*[a-z]){1,}?$/,
                 'Email invalid',
             ),
-        phone: yup
-            .string()
-            .optional()
-            .matches(
-                /^([(][0-9]{2}[)]) ([0-9]{5})-([0-9]{4})/,
-                'Phone invalid',
-            ),
+        phone: yup.string().optional().matches(),
+
         day: yup
             .number()
             .positive()
@@ -72,6 +68,7 @@ const schema = yup
             .integer()
             .required('Please enter your age')
             .typeError('Please enter your age'),
+
         checkbox: yup.boolean().isTrue('Please confirm the terms'),
     })
     .required();
@@ -157,9 +154,9 @@ const FormBasic = () => {
 
             <ContainerBirthday>
                 <Label>Birthday</Label>
-                {errors.day && (
+                {(errors.day || errors.month || errors.year) && (
                     <ErrorMessage style={{left: '80px'}}>
-                        {errors.day?.message}
+                        Please enter your age
                     </ErrorMessage>
                 )}
                 <DayMonth>
