@@ -16,5 +16,4 @@ export const Label = styled.label`
     font-size: 1.4rem;
     color: #767676;
 `;
-export const Container = styled.div`
-`;
+export const Container = styled.div``;
