@@ -6,11 +6,10 @@ display:flex;
 align-items: flex-end;
 flex-direction: column;
 width: 100%;
-outline-style: solid;
-outline-color: yellow;
 `;
 
 export const ButtonStyled = styled.button`
+
 width: 8.1rem;
 height: 4rem;
 background: #074EE8;
