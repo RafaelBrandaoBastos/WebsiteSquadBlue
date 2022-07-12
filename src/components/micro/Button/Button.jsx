@@ -1,8 +1,8 @@
 import React from "react";
-import { ButtonNextStyled, ButtonMoreStyled, ButtonFinishStyled, ButtonReturnStyled, ButtonCertificatesStyled } from "./buttonStyled";
+import { ButtonNextStyled, ButtonMoreStyled, ButtonFinishStyled, ButtonReturnStyled, ButtonCertificatesStyled, LinkCertificates, ButtonRemoveCertificates, ContainerRemoveCertificates } from "./buttonStyled";
 import {TbPlus} from "react-icons/tb";
 import {MdNavigateNext} from "react-icons/md";
-
+import {AiOutlineClose} from "react-icons/ai";
 
 const Button = (props)=>{
     if(props.name=="Next")
@@ -32,6 +32,16 @@ const Button = (props)=>{
     if (props.name=="Certificates")
     return(
       <ButtonCertificatesStyled name={props.name} type={props.type}> {props.name}</ButtonCertificatesStyled>
+    )
+
+    if (props.name=="RemoveCertificate")
+    return(
+      <ContainerRemoveCertificates>
+      <LinkCertificates>{props.children}</LinkCertificates>
+      <ButtonRemoveCertificates name={props.name} type={props.type}>
+         <AiOutlineClose color="white" size="1.1rem" style={{position:"absolute", top: "3%", right: "5%"}} />
+      </ButtonRemoveCertificates> 
+      </ContainerRemoveCertificates> 
     )
 }
 
