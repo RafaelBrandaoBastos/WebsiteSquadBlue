@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import * as yup from 'yup';
 import Input from '../../micro/Input/Input';
 import Button from '../../micro/Button/Button';
@@ -26,6 +26,8 @@ import {
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
+import {UserDataContext} from '../../../contexts/UserDataProvider';
+import {phoneMask} from '../../../utils/phoneMask';
 
 const schema = yup
     .object({
@@ -41,13 +43,8 @@ const schema = yup
                 /^[a-z0-9._-]+(?:\.[a-z0-9._-]+)*@(?:[a-z0-9](?:[a-z-]*[a-z])?.)+[a-z](?:[a-z]*[a-z]){1,}?$/,
                 'Email invalid',
             ),
-        phone: yup
-            .string()
-            .optional()
-            .matches(
-                /^([(][0-9]{2}[)]) ([0-9]{5})-([0-9]{4})/,
-                'Phone invalid',
-            ),
+        phone: yup.string().optional().matches(),
+
         day: yup
             .number()
             .positive()
@@ -72,11 +69,13 @@ const schema = yup
             .integer()
             .required('Please enter your age')
             .typeError('Please enter your age'),
+
         checkbox: yup.boolean().isTrue('Please confirm the terms'),
     })
     .required();
 
 const FormBasic = () => {
+    const [userData, setUserData] = useContext(UserDataContext);
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
 
     const {
@@ -84,12 +83,24 @@ const FormBasic = () => {
         handleSubmit,
         watch,
         formState: {errors},
+        setValue,
     } = useForm({resolver: yupResolver(schema)});
 
     const onSubmit = (data) => {
+        setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
-        console.log(data);
     };
+
+    // Volta informações para os campos
+
+    useEffect(() => {
+        if (userData) {
+            const keys = Object.keys(userData);
+            keys.forEach((key) => {
+                setValue(key, userData[key]);
+            });
+        }
+    });
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -157,9 +168,9 @@ const FormBasic = () => {
 
             <ContainerBirthday>
                 <Label>Birthday</Label>
-                {errors.day && (
+                {(errors.day || errors.month || errors.year) && (
                     <ErrorMessage style={{left: '80px'}}>
-                        {errors.day?.message}
+                        Please enter your age
                     </ErrorMessage>
                 )}
                 <DayMonth>
