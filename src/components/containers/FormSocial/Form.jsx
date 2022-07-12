@@ -28,6 +28,7 @@ const FormSocial = ()=>{
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
     
     const {
+        getValues,
         register,
         handleSubmit,
         watch,
@@ -40,6 +41,29 @@ const FormSocial = ()=>{
         setUserData({...userData, ...data});
     };
 
+    const SetData = () => {
+        localStorage.setItem("StorageData", JSON.stringify(getValues()));
+    };
+
+
+    const GetData = () => {
+        if (localStorage.getItem("StorageData")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+            const keys = Object.keys(StorageData);
+            keys.forEach((key) => {
+                setValue(key, StorageData[key])
+            })
+        }
+    }
+
+    useEffect(() => {
+        GetData()
+        window.addEventListener('beforeunload', SetData); 
+        return() => {
+            window.removeEventListener('beforeunload', SetData);     
+        }
+    }, []);
+    
     useEffect(() => {
         if (userData) {
             const keys = Object.keys(userData);
@@ -79,3 +103,4 @@ const FormSocial = ()=>{
 };
   
 export default FormSocial;
+

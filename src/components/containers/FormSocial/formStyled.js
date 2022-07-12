@@ -7,6 +7,7 @@ export const Form = styled.form`
     flex-wrap: wrap;
     width: 100%;
 `;
+
 export const ContainerLinkedin = styled.div`
     display: flex;
     width: 100%;
@@ -31,3 +32,4 @@ export const ContainerButton = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
 `;
+

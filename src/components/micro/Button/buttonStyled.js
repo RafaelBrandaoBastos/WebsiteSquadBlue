@@ -4,6 +4,7 @@ import CheckIcon from "../../../assets/checkIcon.svg";
 import IconCertificates from "../../../assets/iconCertificates.svg";
 
 export const ButtonNextStyled = styled.button`
+
 width: 8.1rem;
 height: 4rem;
 background: #074EE8;
