@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Input from "../../micro/Input/Input"
 import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
 import * as yup from 'yup';
@@ -28,13 +28,15 @@ const schema = yup
             .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,'Graduation Name Invalid'),
     })
     .required();
-
+    
+    
 const FormCertificates = ()=>{
 
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
     const [userData, setUserData] = useContext(UserDataContext);
 
     const {
+        getValues,
         register,
         handleSubmit,
         watch,
@@ -45,7 +47,31 @@ const FormCertificates = ()=>{
     const onSubmit = (data) => {
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
+        SetData;
+    }
+    const SetData = () => {
+        localStorage.setItem("StorageData", JSON.stringify(getValues()));
     };
+
+
+    const GetData = () => {
+        if (localStorage.getItem("StorageData")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+            const keys = Object.keys(StorageData);
+            keys.forEach((key) => {
+                setValue(key, StorageData[key])
+            })
+        }
+    }
+
+    useEffect(() => {
+        GetData()
+        window.addEventListener('beforeunload', SetData); 
+        return() => {
+            window.removeEventListener('beforeunload', SetData);     
+        }
+    }, []);
+    
 
     useEffect(() => {
         if (userData) {
@@ -64,7 +90,8 @@ const FormCertificates = ()=>{
                 label = "Certificates" 
                 type="text" 
                 placeholder="https://www.Certificate.com" 
-                {...{register: register('certificates')}}/>
+                {...{register: register('certificates')}}                
+                />
                 <ErrorMessage style={{left: '80px'}}>{errors.certificates?.message}</ErrorMessage> 
             </ContainerCertificates>
 
