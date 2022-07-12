@@ -17,6 +17,7 @@ export const CustomCheckbox = styled.label`
     width: fit-content;
     align-items: center;
     cursor: pointer;
+    position: relative;
 
     input:checked + ${Checkmark} {
         background-color: #074ee8;

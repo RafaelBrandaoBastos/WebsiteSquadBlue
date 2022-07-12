@@ -82,6 +82,14 @@ export const ErrorMessage = styled.span`
     font-size: 1.4rem;
     color: red;
     top: 1px;
+
+    &.checkbox {
+        @media (max-width: 540px) {
+            top: 2rem;
+            right: 0px !important;
+            left: 1px;
+        }
+    }
 `;
 export const Label = styled.p`
     width: 100%;
@@ -104,4 +112,8 @@ export const ContainerButton = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+`;
+
+export const ContainerCheckbox = styled.div`
+    position: relative;
 `;
