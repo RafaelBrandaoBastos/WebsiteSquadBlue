@@ -17,7 +17,7 @@ export const ContainerButtonsCertificatesMore = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  height: 7.7rem;
+  min-height: 7.7rem;
 `;
 export const ContainerTeamname = styled.div`
   display: flex;
