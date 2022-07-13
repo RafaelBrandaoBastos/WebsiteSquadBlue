@@ -15,10 +15,10 @@ const FormSucess = ()=>{
         localStorage.removeItem("StorageCertificates")
         localStorage.removeItem("StorageSocial")
         localStorage.removeItem("StorageBasic")
-        /*setUserData("");*/
+        setUserData("");
     };
     return( 
-        <div>
+        <Form>
             <Text>Your data has been sent successfully!</Text>
             <Text>Full Name:{data.name}</Text>
             <Text>Email: {data.email}</Text>
@@ -32,7 +32,7 @@ const FormSucess = ()=>{
             <ContainerButton>
                 <Button name='Return' type='button' onClick = {() => removedata()}/>
             </ContainerButton>     
-        </div> 
+        </Form> 
     )
 };
   
