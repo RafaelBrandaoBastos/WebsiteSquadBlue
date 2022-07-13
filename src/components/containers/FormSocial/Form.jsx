@@ -39,6 +39,7 @@ const FormSocial = ()=>{
     const onSubmit = (data) => {
         setSelectedTab(selectedTab + 1);
         setUserData({...userData, ...data});
+        SetData;
     };
 
     const SetData = () => {

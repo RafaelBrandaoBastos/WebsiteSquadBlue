@@ -10,7 +10,6 @@ export const Tab = styled.button`
     border-bottom: 2px solid #aaaaaa;
     outline: 0;
     cursor: pointer;
-
     &.active {
         border-bottom: 3px solid #074ee8;
         color: #074ee8;
@@ -22,4 +21,7 @@ export const TabGroup = styled.div`
     display: flex;
     max-width: 51.5rem;
     margin-bottom: 6%;
+    &.none {
+        display: none;
+    }
 `;
