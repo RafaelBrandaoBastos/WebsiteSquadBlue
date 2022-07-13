@@ -9,7 +9,7 @@ export const CardStyled = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 9.7rem;
+  margin-top: 9.5rem;
 
   @media (max-width: 640px) {
     max-width: 100%;

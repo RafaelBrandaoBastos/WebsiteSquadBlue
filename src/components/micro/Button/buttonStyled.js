@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import NextIcon from "../../../assets/nextIcon.svg";
-import CheckIcon from "../../../assets/checkIcon.svg";
-import IconCertificates from "../../../assets/iconCertificates.svg";
+import styled from 'styled-components';
+import NextIcon from '../../../assets/nextIcon.svg';
+import CheckIcon from '../../../assets/checkIcon.svg';
+import IconCertificates from '../../../assets/iconCertificates.svg';
 
 export const ButtonNextStyled = styled.button`
+
   width: 8.1rem;
   height: 4rem;
   background: #074ee8;
@@ -115,3 +116,4 @@ export const ContainerRemoveCertificates = styled.div`
   justify-content: space-between;
   margin-top: -0.5rem;
 `;
+
