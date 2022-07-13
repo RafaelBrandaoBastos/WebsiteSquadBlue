@@ -111,11 +111,9 @@ const FormBasic = () => {
         SetData;
     };
     const SetData = () => {
-        localStorage.setItem("StorageData", JSON.stringify(getValues()));
+        localStorage.setItem("StorageBasic", JSON.stringify(getValues()));
     };
 
-
-    // Volta informações para os campos
 
     useEffect(() => {
         if (userData) {
@@ -127,8 +125,8 @@ const FormBasic = () => {
     }, []);
 
     const GetData = () => {
-        if (localStorage.getItem("StorageData")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+        if (localStorage.getItem("StorageBasic")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageBasic"));
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
                 setValue(key, StorageData[key])

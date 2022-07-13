@@ -42,13 +42,13 @@ const FormSocial = ()=>{
     };
 
     const SetData = () => {
-        localStorage.setItem("StorageData", JSON.stringify(getValues()));
+        localStorage.setItem("StorageSocial", JSON.stringify(getValues()));
     };
 
 
     const GetData = () => {
-        if (localStorage.getItem("StorageData")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+        if (localStorage.getItem("StorageSocial")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageSocial"));
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
                 setValue(key, StorageData[key])

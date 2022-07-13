@@ -50,13 +50,13 @@ const FormCertificates = ()=>{
         SetData;
     }
     const SetData = () => {
-        localStorage.setItem("StorageData", JSON.stringify(getValues()));
+        localStorage.setItem("StorageCertificates", JSON.stringify(getValues()));
     };
 
 
     const GetData = () => {
-        if (localStorage.getItem("StorageData")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+        if (localStorage.getItem("StorageCertificates")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageCertificates"));
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
                 setValue(key, StorageData[key])
