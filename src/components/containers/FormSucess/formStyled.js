@@ -8,28 +8,16 @@ export const Form = styled.form`
     width: 100%;
 `;
 
-export const ContainerLinkedin = styled.div`
-    display: flex;
+export const Text = styled.div`
     width: 100%;
-    position: relative;
-    padding-bottom: 2.5rem;
-`;
-export const ContainerGithub = styled.div`
-    display: flex;
-    width: 100%;
-    position: relative;
-`;
-export const ErrorMessage = styled.span`
-    position: absolute;
-    font-size: 1.4rem;
-    color: red;
-   
+    font-size: 16px;
+    line-height: 18px;
+    line-height: 82%;
+    padding-bottom: 3.5rem;
 `;
 export const ContainerButton = styled.div`
     display: flex;
     width: 100%;
-    height: 220%;
     justify-content: flex-end;
     align-items: flex-end;
 `;
-
