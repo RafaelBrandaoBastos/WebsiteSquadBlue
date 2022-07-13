@@ -102,7 +102,7 @@ const FormBasic = () => {
         const year = new Date(diff).getUTCFullYear();
         const age = Math.abs(year - 1970);
 
-        setValue('age', age);
+        age && setValue('age', age);
     }, [watchFields]);
 
     const onSubmit = (data) => {
@@ -111,9 +111,8 @@ const FormBasic = () => {
         SetData;
     };
     const SetData = () => {
-        localStorage.setItem("StorageData", JSON.stringify(getValues()));
+        localStorage.setItem('StorageData', JSON.stringify(getValues()));
     };
-
 
     // Volta informações para os campos
 
@@ -127,21 +126,21 @@ const FormBasic = () => {
     }, []);
 
     const GetData = () => {
-        if (localStorage.getItem("StorageData")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+        if (localStorage.getItem('StorageData')) {
+            const StorageData = JSON.parse(localStorage.getItem('StorageData'));
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
-                setValue(key, StorageData[key])
-            })
+                setValue(key, StorageData[key]);
+            });
         }
-    }
+    };
 
     useEffect(() => {
-        GetData()
-        window.addEventListener('beforeunload', SetData); 
-        return() => {
-            window.removeEventListener('beforeunload', SetData);     
-        }
+        GetData();
+        window.addEventListener('beforeunload', SetData);
+        return () => {
+            window.removeEventListener('beforeunload', SetData);
+        };
     }, []);
 
     return (
@@ -266,7 +265,7 @@ const FormBasic = () => {
                 )}
             </ContainerCheckbox>
             <ContainerButton>
-                <Button name='Next' type='submit'/>
+                <Button name='Next' type='submit' />
             </ContainerButton>
         </Form>
     );
