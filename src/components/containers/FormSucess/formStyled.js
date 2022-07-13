@@ -7,6 +7,7 @@ export const Form = styled.form`
     flex-wrap: wrap;
     width: 100%;
 `;
+
 export const Text = styled.div`
     width: 100%;
     font-size: 16px;

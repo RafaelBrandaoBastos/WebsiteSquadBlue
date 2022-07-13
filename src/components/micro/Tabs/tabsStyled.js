@@ -24,4 +24,5 @@ export const TabGroup = styled.div`
     &.none {
         display: none;
     }
+
 `;

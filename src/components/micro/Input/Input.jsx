@@ -11,7 +11,7 @@ const Input = ({
     width,
     height,
     onChangeCapture,
-    disabled,
+    readOnly,
 }) => {
     return (
         <Container style={{width: `${width}`}}>
@@ -25,7 +25,7 @@ const Input = ({
                 {...register}
                 className={className}
                 onChangeCapture={onChangeCapture}
-                disabled={disabled}
+                readOnly={readOnly}
             />
         </Container>
     );

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Input from "../../micro/Input/Input"
-import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
+import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerButtonsCertificatesMore, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
 import * as yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -98,6 +98,11 @@ const FormCertificates = ()=>{
                 />
                 <ErrorMessage style={{left: '80px'}}>{errors.certificates?.message}</ErrorMessage> 
             </ContainerCertificates>
+            
+            <ContainerButtonsCertificatesMore>
+                <Button name="Certificates" type="submit"/>
+                <Button name="More" type="submit" />
+            </ContainerButtonsCertificatesMore>
 
             <ContainerTeamname>
                 <Input 
