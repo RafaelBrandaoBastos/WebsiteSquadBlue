@@ -102,7 +102,7 @@ const FormBasic = () => {
         const year = new Date(diff).getUTCFullYear();
         const age = Math.abs(year - 1970);
 
-        setValue('age', age);
+        age && setValue('age', age);
     }, [watchFields]);
 
     const onSubmit = (data) => {
@@ -111,9 +111,8 @@ const FormBasic = () => {
         SetData;
     };
     const SetData = () => {
-        localStorage.setItem("StorageBasic", JSON.stringify(getValues()));
+        localStorage.setItem('StorageBasic', JSON.stringify(getValues()));
     };
-
 
     useEffect(() => {
         if (userData) {
@@ -125,21 +124,24 @@ const FormBasic = () => {
     }, []);
 
     const GetData = () => {
-        if (localStorage.getItem("StorageBasic")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageBasic"));
+        if (localStorage.getItem('StorageBasic')) {
+            const StorageData = JSON.parse(
+                localStorage.getItem('StorageBasic'),
+            );
+
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
-                setValue(key, StorageData[key])
-            })
+                setValue(key, StorageData[key]);
+            });
         }
-    }
+    };
 
     useEffect(() => {
-        GetData()
-        window.addEventListener('beforeunload', SetData); 
-        return() => {
-            window.removeEventListener('beforeunload', SetData);     
-        }
+        GetData();
+        window.addEventListener('beforeunload', SetData);
+        return () => {
+            window.removeEventListener('beforeunload', SetData);
+        };
     }, []);
 
     return (
@@ -250,7 +252,7 @@ const FormBasic = () => {
                             type='number'
                             placeholder='18'
                             {...{register: register('age')}}
-                            disabled
+                            readOnly
                         />
                     </ContainerAge>
                 </YearAge>
@@ -264,7 +266,7 @@ const FormBasic = () => {
                 )}
             </ContainerCheckbox>
             <ContainerButton>
-                <Button name='Next' type='submit'/>
+                <Button name='Next' type='submit' />
             </ContainerButton>
         </Form>
     );
