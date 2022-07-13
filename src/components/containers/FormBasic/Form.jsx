@@ -84,7 +84,6 @@ const FormBasic = () => {
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
 
     const {
-        getValues,
         register,
         handleSubmit,
         watch,
