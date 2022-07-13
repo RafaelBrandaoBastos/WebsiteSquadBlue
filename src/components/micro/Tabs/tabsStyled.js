@@ -23,4 +23,5 @@ export const TabGroup = styled.div`
     max-width: 100%;
     margin-bottom: 5%;
     align-self: center;
+
 `;
