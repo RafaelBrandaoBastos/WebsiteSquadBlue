@@ -18,7 +18,7 @@ const schema = yup
         github: yup
             .string()
             .required('Please enter your Github account')
-            .matches(/^(?:https?:\/\/)?(?:www\.)?(?:github\.com\/(\w+))\/?$/,'Github Invalid'),
+            .matches(/^(?:https?:\/\/)?(?:www\.)?(?:github\.com)\/[a-zA-Zà-úÀ-Ú.,-_!@#$%&*´`;:|]/,'Github Invalid'),
     })
     .required();
 
