@@ -22,7 +22,6 @@ import {
     ContainerButton,
     ContainerCheckbox,
 } from './formStyled.js';
-
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
@@ -79,6 +78,7 @@ const FormBasic = () => {
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
 
     const {
+        getValues,
         register,
         handleSubmit,
         watch,
@@ -89,7 +89,12 @@ const FormBasic = () => {
     const onSubmit = (data) => {
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
+        SetData;
     };
+    const SetData = () => {
+        localStorage.setItem("StorageData", JSON.stringify(getValues()));
+    };
+
 
     // Volta informações para os campos
 
@@ -101,6 +106,24 @@ const FormBasic = () => {
             });
         }
     });
+
+    const GetData = () => {
+        if (localStorage.getItem("StorageData")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageData"));
+            const keys = Object.keys(StorageData);
+            keys.forEach((key) => {
+                setValue(key, StorageData[key])
+            })
+        }
+    }
+
+    useEffect(() => {
+        GetData()
+        window.addEventListener('beforeunload', SetData); 
+        return() => {
+            window.removeEventListener('beforeunload', SetData);     
+        }
+    }, []);
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -223,7 +246,7 @@ const FormBasic = () => {
                 )}
             </ContainerCheckbox>
             <ContainerButton>
-                <Button name='Next' type='submit' />
+                <Button name='Next' type='submit'/>
             </ContainerButton>
         </Form>
     );
