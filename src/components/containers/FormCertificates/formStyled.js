@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Form = styled.form`
-    height: 50%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 `;
 export const ContainerCertificates = styled.div`
     display: flex;
@@ -32,18 +32,15 @@ export const ContainerGraduation = styled.div`
     padding-bottom: 2.5rem;
 `;
 
-
 export const ErrorMessage = styled.span`
     position: absolute;
     font-size: 1.4rem;
-    color: red; 
+    color: red;
 `;
 export const ContainerButton = styled.div`
     display: flex;
     width: 100%;
-    height: 55%;
+    height: 100%;
     justify-content: flex-end;
     align-items: flex-end;
 `;
-
-
