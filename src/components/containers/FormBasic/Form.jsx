@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import * as yup from 'yup';
 import Input from '../../micro/Input/Input';
 import Button from '../../micro/Button/Button';
@@ -22,10 +22,11 @@ import {
     ContainerButton,
     ContainerCheckbox,
 } from './formStyled.js';
-
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
+import {UserDataContext} from '../../../contexts/UserDataProvider';
+import {phoneMask} from '../../../utils/phoneMask';
 
 const schema = yup
     .object({
@@ -41,29 +42,30 @@ const schema = yup
                 /^[a-z0-9._-]+(?:\.[a-z0-9._-]+)*@(?:[a-z0-9](?:[a-z-]*[a-z])?.)+[a-z](?:[a-z]*[a-z]){1,}?$/,
                 'Email invalid',
             ),
-        phone: yup
-            .string()
-            .optional()
-            .matches(
-                /^([(][0-9]{2}[)]) ([0-9]{5})-([0-9]{4})/,
-                'Phone invalid',
-            ),
+        phone: yup.string().optional().matches(),
+
         day: yup
             .number()
             .positive()
             .integer()
+            .min(1)
+            .max(31)
             .required('Please enter your age')
             .typeError('Please enter your age'),
         month: yup
             .number()
             .positive()
             .integer()
+            .min(1)
+            .max(12)
             .required('Please enter your age')
             .typeError('Please enter your age'),
         year: yup
             .number()
             .positive()
             .integer()
+            .min(1901)
+            .max(2004)
             .required('Please enter your age')
             .typeError('Please enter your age'),
         age: yup
@@ -72,11 +74,13 @@ const schema = yup
             .integer()
             .required('Please enter your age')
             .typeError('Please enter your age'),
+
         checkbox: yup.boolean().isTrue('Please confirm the terms'),
     })
     .required();
 
 const FormBasic = () => {
+    const [userData, setUserData] = useContext(UserDataContext);
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
 
     const {
@@ -84,12 +88,59 @@ const FormBasic = () => {
         handleSubmit,
         watch,
         formState: {errors},
+        setValue,
+        getValues,
     } = useForm({resolver: yupResolver(schema)});
 
+    const watchFields = watch(['month', 'day', 'year']);
+
+    useEffect(() => {
+        const dateOfBirthday = new Date(
+            `${watchFields[2]}-${watchFields[0]}-${watchFields[1]}`,
+        );
+        const diff = Date.now() - dateOfBirthday.getTime();
+        const year = new Date(diff).getUTCFullYear();
+        const age = Math.abs(year - 1970);
+
+        setValue('age', age);
+    }, [watchFields]);
+
     const onSubmit = (data) => {
+        setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
-        console.log(data);
+        SetData;
     };
+    const SetData = () => {
+        localStorage.setItem("StorageBasic", JSON.stringify(getValues()));
+    };
+
+
+    useEffect(() => {
+        if (userData) {
+            const keys = Object.keys(userData);
+            keys.forEach((key) => {
+                setValue(key, userData[key]);
+            });
+        }
+    }, []);
+
+    const GetData = () => {
+        if (localStorage.getItem("StorageBasic")) { 
+            const StorageData = JSON.parse(localStorage.getItem("StorageBasic"));
+            const keys = Object.keys(StorageData);
+            keys.forEach((key) => {
+                setValue(key, StorageData[key])
+            })
+        }
+    }
+
+    useEffect(() => {
+        GetData()
+        window.addEventListener('beforeunload', SetData); 
+        return() => {
+            window.removeEventListener('beforeunload', SetData);     
+        }
+    }, []);
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -157,9 +208,9 @@ const FormBasic = () => {
 
             <ContainerBirthday>
                 <Label>Birthday</Label>
-                {errors.day && (
+                {(errors.day || errors.month || errors.year) && (
                     <ErrorMessage style={{left: '80px'}}>
-                        {errors.day?.message}
+                        Please enter your age
                     </ErrorMessage>
                 )}
                 <DayMonth>
@@ -199,6 +250,7 @@ const FormBasic = () => {
                             type='number'
                             placeholder='18'
                             {...{register: register('age')}}
+                            disabled
                         />
                     </ContainerAge>
                 </YearAge>
@@ -212,7 +264,7 @@ const FormBasic = () => {
                 )}
             </ContainerCheckbox>
             <ContainerButton>
-                <Button name='Next' type='submit' />
+                <Button name='Next' type='submit'/>
             </ContainerButton>
         </Form>
     );
