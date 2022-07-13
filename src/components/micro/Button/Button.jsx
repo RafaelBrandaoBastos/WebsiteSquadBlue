@@ -26,7 +26,7 @@ const Button = (props)=>{
 
     if (props.name=="Return")
     return(
-      <ButtonReturnStyled  name={props.name} type={props.type} > {props.name}</ButtonReturnStyled> 
+      <ButtonReturnStyled  name={props.name} type={props.type} onClick = {props.onClick}> {props.name}</ButtonReturnStyled> 
     )
 
     if (props.name=="Certificates")
