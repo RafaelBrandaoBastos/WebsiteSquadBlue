@@ -111,16 +111,8 @@ const FormBasic = () => {
         SetData;
     };
     const SetData = () => {
-<<<<<<< HEAD
-        localStorage.setItem('StorageData', JSON.stringify(getValues()));
+        localStorage.setItem('StorageBasic', JSON.stringify(getValues()));
     };
-
-    // Volta informações para os campos
-=======
-        localStorage.setItem("StorageBasic", JSON.stringify(getValues()));
-    };
-
->>>>>>> develop
 
     useEffect(() => {
         if (userData) {
@@ -132,13 +124,11 @@ const FormBasic = () => {
     }, []);
 
     const GetData = () => {
-<<<<<<< HEAD
-        if (localStorage.getItem('StorageData')) {
-            const StorageData = JSON.parse(localStorage.getItem('StorageData'));
-=======
-        if (localStorage.getItem("StorageBasic")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageBasic"));
->>>>>>> develop
+        if (localStorage.getItem('StorageBasic')) {
+            const StorageData = JSON.parse(
+                localStorage.getItem('StorageBasic'),
+            );
+
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
                 setValue(key, StorageData[key]);
@@ -262,7 +252,7 @@ const FormBasic = () => {
                             type='number'
                             placeholder='18'
                             {...{register: register('age')}}
-                            disabled
+                            readOnly
                         />
                     </ContainerAge>
                 </YearAge>
