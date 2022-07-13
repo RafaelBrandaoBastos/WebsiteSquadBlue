@@ -48,18 +48,24 @@ const schema = yup
             .number()
             .positive()
             .integer()
+            .min(1)
+            .max(31)
             .required('Please enter your age')
             .typeError('Please enter your age'),
         month: yup
             .number()
             .positive()
             .integer()
+            .min(1)
+            .max(12)
             .required('Please enter your age')
             .typeError('Please enter your age'),
         year: yup
             .number()
             .positive()
             .integer()
+            .min(1901)
+            .max(2004)
             .required('Please enter your age')
             .typeError('Please enter your age'),
         age: yup
@@ -84,7 +90,21 @@ const FormBasic = () => {
         watch,
         formState: {errors},
         setValue,
+        getValues,
     } = useForm({resolver: yupResolver(schema)});
+
+    const watchFields = watch(['month', 'day', 'year']);
+
+    useEffect(() => {
+        const dateOfBirthday = new Date(
+            `${watchFields[2]}-${watchFields[0]}-${watchFields[1]}`,
+        );
+        const diff = Date.now() - dateOfBirthday.getTime();
+        const year = new Date(diff).getUTCFullYear();
+        const age = Math.abs(year - 1970);
+
+        setValue('age', age);
+    }, [watchFields]);
 
     const onSubmit = (data) => {
         setUserData({...userData, ...data});
@@ -105,7 +125,7 @@ const FormBasic = () => {
                 setValue(key, userData[key]);
             });
         }
-    });
+    }, []);
 
     const GetData = () => {
         if (localStorage.getItem("StorageData")) { 
@@ -233,6 +253,7 @@ const FormBasic = () => {
                             type='number'
                             placeholder='18'
                             {...{register: register('age')}}
+                            disabled
                         />
                     </ContainerAge>
                 </YearAge>
