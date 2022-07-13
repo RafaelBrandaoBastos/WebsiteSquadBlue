@@ -32,9 +32,11 @@ const schema = yup
     
 const FormCertificates = ()=>{
 
+    
+
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
     const [userData, setUserData] = useContext(UserDataContext);
-
+    console.log(userData)
     const {
         getValues,
         register,
@@ -47,8 +49,10 @@ const FormCertificates = ()=>{
     const onSubmit = (data) => {
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
-        SetData;
+        SetData();
+        console.log(userData)
     }
+    
     const SetData = () => {
         localStorage.setItem("StorageCertificates", JSON.stringify(getValues()));
     };
@@ -66,9 +70,9 @@ const FormCertificates = ()=>{
 
     useEffect(() => {
         GetData()
-        window.addEventListener('beforeunload', SetData); 
+        window.addEventListener('beforeunload', SetData()); 
         return() => {
-            window.removeEventListener('beforeunload', SetData);     
+            window.removeEventListener('beforeunload', SetData());     
         }
     }, []);
     

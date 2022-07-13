@@ -39,7 +39,7 @@ const FormSocial = ()=>{
     const onSubmit = (data) => {
         setSelectedTab(selectedTab + 1);
         setUserData({...userData, ...data});
-        SetData;
+        SetData();
     };
 
     const SetData = () => {
@@ -59,9 +59,9 @@ const FormSocial = ()=>{
 
     useEffect(() => {
         GetData()
-        window.addEventListener('beforeunload', SetData); 
+        window.addEventListener('beforeunload', (SetData())); 
         return() => {
-            window.removeEventListener('beforeunload', SetData);     
+            window.removeEventListener('beforeunload', SetData());     
         }
     }, []);
     
