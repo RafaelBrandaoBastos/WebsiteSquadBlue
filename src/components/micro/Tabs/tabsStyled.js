@@ -20,6 +20,7 @@ export const Tab = styled.button`
 
 export const TabGroup = styled.div`
     display: flex;
-    max-width: 51.5rem;
+    max-width: 100%;
     margin-bottom: 5%;
+    align-self: center;
 `;
