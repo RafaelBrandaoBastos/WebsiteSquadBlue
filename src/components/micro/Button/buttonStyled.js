@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-import NextIcon from '../../../assets/nextIcon.svg';
-import CheckIcon from '../../../assets/checkIcon.svg';
-import IconCertificates from '../../../assets/iconCertificates.svg';
+import styled from "styled-components";
+import NextIcon from "../../../assets/nextIcon.svg";
+import CheckIcon from "../../../assets/checkIcon.svg";
+import IconCertificates from "../../../assets/iconCertificates.svg";
 
 export const ButtonNextStyled = styled.button`
-
   width: 8.1rem;
   height: 4rem;
   background: #074ee8;
@@ -42,6 +41,35 @@ export const ButtonMoreStyled = styled.button`
   &:hover {
     cursor: pointer;
     background-color: #20b7d8;
+  }
+
+  @media (max-width: 350px) {
+    width: 8rem;
+    font-size: 1rem;
+  }
+`;
+
+export const ContainerMessageMore = styled.div`
+  margin-top: 0.5rem;
+  height: 4.7rem;
+  margin-bottom: 1.1rem;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const ErrorMessageMore = styled.span`
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #ff0000;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 396px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -82,26 +110,11 @@ export const ButtonCertificatesStyled = styled(ButtonMoreStyled)`
   background-size: contain;
   padding-left: 4.1rem;
   justify-content: left;
-`;
 
-export const LinkCertificates = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8rem;
-  color: #ffffff;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 2rem;
-  width: 14.9rem;
-`;
-export const ButtonRemoveCertificates = styled.button`
-  width: 1.4rem;
-  height: 1.3rem;
-  border: none;
-  background: rgba(7, 78, 232, 0);
-  position: relative;
-
-  :hover {
-    cursor: pointer;
+  @media (max-width: 350px) {
+    width: 9.35rem;
+    padding-left: 1rem;
+    background-position: 7.35em;
   }
 `;
 
@@ -117,3 +130,24 @@ export const ContainerRemoveCertificates = styled.div`
   margin-top: -0.5rem;
 `;
 
+export const LinkCertificates = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2rem;
+  width: 14.9rem;
+`;
+
+export const ButtonRemoveCertificates = styled.button`
+  width: 1.4rem;
+  height: 1.3rem;
+  border: none;
+  background: rgba(7, 78, 232, 0);
+  position: relative;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
