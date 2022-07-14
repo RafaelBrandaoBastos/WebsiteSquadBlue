@@ -2382,7 +2382,11 @@
     regenerator-runtime "^0.13.7"
     resolve-from "^5.0.0"
 
+<<<<<<< HEAD
 "@testing-library/dom@^8.3.0", "@testing-library/dom@^8.5.0":
+=======
+"@testing-library/dom@^8.3.0":
+>>>>>>> 9fb85d4809b20ff2a0799580b52f068589d59f75
   version "8.16.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.16.0.tgz#d6fc50250aed17b1035ca1bd64655e342db3936a"
   integrity sha512-uxF4zmnLHHDlmW4l+0WDjcgLVwCvH+OVLpD8Dfp+Bjfz85prwxWGbwXgJdLtkgjD0qfOzkJF9SmA6YZPsMYX4w==
@@ -2396,6 +2400,7 @@
     lz-string "^1.4.4"
     pretty-format "^27.0.2"
 
+<<<<<<< HEAD
 "@testing-library/react@^13.3.0":
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-13.3.0.tgz#bf298bfbc5589326bbcc8052b211f3bb097a97c5"
@@ -2405,6 +2410,8 @@
     "@testing-library/dom" "^8.5.0"
     "@types/react-dom" "^18.0.0"
 
+=======
+>>>>>>> 9fb85d4809b20ff2a0799580b52f068589d59f75
 "@testing-library/user-event@^13.2.1":
   version "13.5.0"
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-13.5.0.tgz#69d77007f1e124d55314a2b73fd204b333b13295"
@@ -4695,9 +4702,15 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.188:
+<<<<<<< HEAD
   version "1.4.189"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.189.tgz#4e5b221dc44e09e9dddc9abbc6457857dee7ba25"
   integrity sha512-dQ6Zn4ll2NofGtxPXaDfY2laIa6NyCQdqXYHdwH90GJQW0LpJJib0ZU/ERtbb0XkBEmUD2eJtagbOie3pdMiPg==
+=======
+  version "1.4.188"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.188.tgz#1954bc444e6f6662cb39f24810f9e5022fcd5bb3"
+  integrity sha512-Zpa1+E+BVmD/orkyz1Z2dAT1XNUuVAHB3GrogfyY66dXN0ZWSsygI8+u6QTDai1ZayLcATDJpcv2Z2AZjEcr1A==
+>>>>>>> 9fb85d4809b20ff2a0799580b52f068589d59f75
 
 elliptic@^6.5.3:
   version "6.5.4"
