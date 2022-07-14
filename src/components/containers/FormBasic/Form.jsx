@@ -33,7 +33,7 @@ const schema = yup
         name: yup
             .string()
             .required('Please enter your Name')
-            .matches(/^[\w]+(?:\s[\w]+)+$/, 'Fullname invalid'),
+            .matches(/^[a-zA-Zà-úÀ-Ú]+(?:\s[a-zA-Zà-úÀ-Ú]+)+$/, 'Fullname invalid'),
         nickname: yup.string().matches(),
         email: yup
             .string()
@@ -108,7 +108,7 @@ const FormBasic = () => {
     const onSubmit = (data) => {
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
-        SetData;
+        SetData();
     };
     const SetData = () => {
         localStorage.setItem('StorageBasic', JSON.stringify(getValues()));
@@ -137,11 +137,12 @@ const FormBasic = () => {
     };
 
     useEffect(() => {
-        GetData();
-        window.addEventListener('beforeunload', SetData);
-        return () => {
-            window.removeEventListener('beforeunload', SetData);
-        };
+
+        GetData()
+        window.addEventListener('beforeunload', SetData()); 
+        return() => {
+            window.removeEventListener('beforeunload', SetData());     
+        }
     }, []);
 
     return (

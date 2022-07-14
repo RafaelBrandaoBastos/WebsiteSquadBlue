@@ -18,7 +18,7 @@ const schema = yup
         github: yup
             .string()
             .required('Please enter your Github account')
-            .matches(/^(?:https?:\/\/)?(?:www\.)?(?:github\.com\/(\w+))\/?$/,'Github Invalid'),
+            .matches(/^(?:https?:\/\/)?(?:www\.)?(?:github\.com)\/[a-zA-Zà-úÀ-Ú.,-_!@#$%&*´`;:|]/,'Github Invalid'),
     })
     .required();
 
@@ -39,6 +39,7 @@ const FormSocial = ()=>{
     const onSubmit = (data) => {
         setSelectedTab(selectedTab + 1);
         setUserData({...userData, ...data});
+        SetData();
     };
 
     const SetData = () => {
@@ -58,9 +59,9 @@ const FormSocial = ()=>{
 
     useEffect(() => {
         GetData()
-        window.addEventListener('beforeunload', SetData); 
+        window.addEventListener('beforeunload', (SetData())); 
         return() => {
-            window.removeEventListener('beforeunload', SetData);     
+            window.removeEventListener('beforeunload', SetData());     
         }
     }, []);
     

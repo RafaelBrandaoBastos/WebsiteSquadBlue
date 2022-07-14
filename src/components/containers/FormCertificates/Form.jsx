@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import Input from "../../micro/Input/Input"
+import Input from "../../micro/Input/Input";
 import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerButtonsMore, ContainerButtonsCertificatesMore, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
 import * as yup from 'yup';
 import {useForm} from 'react-hook-form';
@@ -33,9 +33,11 @@ const schema = yup
     
 const FormCertificates = ()=>{
 
+    
+
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
     const [userData, setUserData] = useContext(UserDataContext);
-
+    console.log(userData)
     const {
         getValues,
         register,
@@ -48,8 +50,10 @@ const FormCertificates = ()=>{
     const onSubmit = (data) => {
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
-        SetData;
+        SetData();
+        console.log(userData)
     }
+    
     const SetData = () => {
         localStorage.setItem("StorageCertificates", JSON.stringify(getValues()));
     };
@@ -67,9 +71,9 @@ const FormCertificates = ()=>{
 
     useEffect(() => {
         GetData()
-        window.addEventListener('beforeunload', SetData); 
+        window.addEventListener('beforeunload', SetData()); 
         return() => {
-            window.removeEventListener('beforeunload', SetData);     
+            window.removeEventListener('beforeunload', SetData());     
         }
     }, []);
     
@@ -96,6 +100,7 @@ const FormCertificates = ()=>{
                 <ErrorMessage style={{left: '80px'}}>{errors.certificates?.message}</ErrorMessage> 
             </ContainerCertificates>
             
+
             <ContainerButtonsMore>
             <ContainerButtonsCertificatesMore>
                 <Button name="Certificates" type="submit"/>
@@ -108,6 +113,7 @@ const FormCertificates = ()=>{
             </ContainerMessageMore>
 
             </ContainerButtonsMore>
+
 
             <ContainerTeamname>
                 <Input 
