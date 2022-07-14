@@ -37,7 +37,9 @@ const FormCertificates = ()=>{
 
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
     const [userData, setUserData] = useContext(UserDataContext);
-    console.log(userData)
+    const [certificates, setCertificates] = useState([]);
+    const [errorCertificates, setErrorCertificates] = useState(false);
+    
     const {
         getValues,
         register,
@@ -51,7 +53,6 @@ const FormCertificates = ()=>{
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
         SetData();
-        console.log(userData)
     }
     
     const SetData = () => {
@@ -86,6 +87,20 @@ const FormCertificates = ()=>{
             });
         }
     });
+    
+    const addingcertificates = () => {
+        const certificate = getValues("certificates");
+        if (certificates.length <5){
+            setCertificates((lastValues) => [...lastValues, certificate]);  
+    }
+    else{ 
+        setErrorCertificates(true);
+    }
+        
+    }
+
+    console.log(certificates);
+
 
     return( 
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -103,15 +118,15 @@ const FormCertificates = ()=>{
 
             <ContainerButtonsMore>
             <ContainerButtonsCertificatesMore>
-                <Button name="Certificates" type="button"/>
-                <Button name="More" type="button" />
+                <Button name="Certificates" type="button" />
+                <Button name="More" type="button" onClick = {() => addingcertificates()}/>
             </ContainerButtonsCertificatesMore>
-
-            <ContainerMessageMore>
-                <ErrorMessageMore>Sorry, only 5 certificates are allowed.</ErrorMessageMore>
-                <ErrorMessageMore>You can remove one certificate instead.</ErrorMessageMore>
-            </ContainerMessageMore>
-
+    
+            {errorCertificates && (<ContainerMessageMore>
+          <ErrorMessageMore>Sorry, only 5 certificates are allowed.</ErrorMessageMore>
+         <ErrorMessageMore>You can remove one certificate instead.</ErrorMessageMore> 
+        </ContainerMessageMore>)}
+        
             </ContainerButtonsMore>
 
 
