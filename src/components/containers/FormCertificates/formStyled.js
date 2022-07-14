@@ -48,6 +48,9 @@ export const ErrorMessage = styled.span`
   position: absolute;
   font-size: 1.4rem;
   color: red;
+  @media (max-width: 300px) {
+    font-size: 1.2rem;
+  }
 `;
 export const ContainerButton = styled.div`
   display: flex;
