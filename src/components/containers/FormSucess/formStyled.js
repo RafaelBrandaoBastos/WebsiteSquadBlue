@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
-    height: 25%;
+export const MainContainer = styled.form`
+    height: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: space-around;
     flex-wrap: wrap;
     width: 100%;
 `;
@@ -12,7 +13,7 @@ export const Text = styled.div`
     font-size: 16px;
     line-height: 18px;
     line-height: 82%;
-    padding-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
 `;
 export const ContainerButton = styled.div`
     display: flex;

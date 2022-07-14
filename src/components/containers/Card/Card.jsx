@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {CardStyled} from "./cardStyled";
 import  Title  from "../../micro/Title/Title";
 import Tabs from "../../micro/Tabs/Tabs";
+import {TabsContext} from '../../../contexts/TabsProvider';
 
 
 const Card = ({})=>{
-   
+    const [selectedTab, setSelectedTab] = useContext(TabsContext);
+
+    
     return(
-            <CardStyled>
+            <CardStyled className={selectedTab === 3 && "small"}>
                 <Title/>
                 <Tabs/>
             </CardStyled>
