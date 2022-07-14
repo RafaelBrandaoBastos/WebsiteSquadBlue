@@ -103,8 +103,8 @@ const FormCertificates = ()=>{
 
             <ContainerButtonsMore>
             <ContainerButtonsCertificatesMore>
-                <Button name="Certificates" type="submit"/>
-                <Button name="More" type="submit" />
+                <Button name="Certificates" type="button"/>
+                <Button name="More" type="button" />
             </ContainerButtonsCertificatesMore>
 
             <ContainerMessageMore>
