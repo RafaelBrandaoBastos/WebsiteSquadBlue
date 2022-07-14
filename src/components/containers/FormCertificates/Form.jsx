@@ -1,11 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Input from "../../micro/Input/Input"
-import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerButtonsCertificatesMore, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
+import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerButtonsMore, ContainerButtonsCertificatesMore, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
 import * as yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
 import Button from '../../micro/Button/Button';
+import { ContainerMessageMore, ErrorMessageMore } from '../../micro/Button/buttonStyled';
 import {UserDataContext} from '../../../contexts/UserDataProvider';
 
 const schema = yup
@@ -95,10 +96,18 @@ const FormCertificates = ()=>{
                 <ErrorMessage style={{left: '80px'}}>{errors.certificates?.message}</ErrorMessage> 
             </ContainerCertificates>
             
+            <ContainerButtonsMore>
             <ContainerButtonsCertificatesMore>
                 <Button name="Certificates" type="submit"/>
                 <Button name="More" type="submit" />
             </ContainerButtonsCertificatesMore>
+
+            <ContainerMessageMore>
+                <ErrorMessageMore>Sorry, only 5 certificates are allowed.</ErrorMessageMore>
+                <ErrorMessageMore>You can remove one certificate instead.</ErrorMessageMore>
+            </ContainerMessageMore>
+
+            </ContainerButtonsMore>
 
             <ContainerTeamname>
                 <Input 
@@ -136,5 +145,3 @@ const FormCertificates = ()=>{
     )  
 }; 
 export default FormCertificates;
-
-

@@ -13,11 +13,14 @@ export const ContainerCertificates = styled.div`
   position: relative;
   padding-bottom: 2.5rem;
 `;
+export const ContainerButtonsMessage = styled.div`
+  min-height: 8.8rem;
+`;
 export const ContainerButtonsCertificatesMore = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  min-height: 7.7rem;
+  min-height: 4rem;
 `;
 export const ContainerTeamname = styled.div`
   display: flex;
