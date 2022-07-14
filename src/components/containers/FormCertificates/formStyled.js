@@ -40,6 +40,10 @@ export const ContainerGraduation = styled.div`
   position: relative;
   padding-bottom: 2.5rem;
 `;
+
+export const ContainerButtonsMore = styled.div`
+  min-height: 8.8rem;
+`;
 export const ErrorMessage = styled.span`
   position: absolute;
   font-size: 1.4rem;
