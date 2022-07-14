@@ -12,7 +12,7 @@ const Button = (props)=>{
 
     if(props.name=="More")
     return(
-      <ButtonMoreStyled name={props.name} type={props.type} {...props.onClick}>
+      <ButtonMoreStyled name={props.name} type={props.type} onClick = {props.onClick}>
         {props.name}
         <TbPlus color={"white"} size={"2rem"} style={{position:"absolute", left: "10%"}}/>
         <MdNavigateNext color="white" size="2.5rem" style={{position:"absolute", right: "8%"}} />
@@ -31,7 +31,7 @@ const Button = (props)=>{
 
     if (props.name=="Certificates")
     return(
-      <ButtonCertificatesStyled name={props.name} type={props.type} {...props.onClick}> {props.name}</ButtonCertificatesStyled>
+      <ButtonCertificatesStyled name={props.name} type={props.type} onClick = {props.onClick}> {props.name}</ButtonCertificatesStyled>
     )
 
     if (props.name=="RemoveCertificate")
