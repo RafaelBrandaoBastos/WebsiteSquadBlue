@@ -5,10 +5,11 @@ import {
   ErrorMessage,
   ContainerButton,
   ContainerCertificates,
-  ContainerButtonsMore,
   ContainerButtonsCertificatesMore,
+  ContainerAddCertificates,
   ContainerMessageMore,
   ErrorMessageMore,
+  ContainerCertificatesList,
   ContainerTeamname,
   ContainerInstitution,
   ContainerGraduation,
@@ -134,36 +135,39 @@ const FormCertificates = () => {
         />
       </ContainerCertificates>
 
-      <ContainerButtonsMore>
-        <ContainerButtonsCertificatesMore>
+      <ContainerButtonsCertificatesMore>
+        <ContainerCertificatesList>
           <Button name="Certificates" type="button" />
           {certificates.map((certificate, index) => (
             <Button name="RemoveCertificate" type="button" key={index}>
               {certificate}
             </Button>
           ))}
+        </ContainerCertificatesList>
+
+        <ContainerAddCertificates>
           <Button name="More" type="button" onClick={() => addCertificate()} />
-        </ContainerButtonsCertificatesMore>
 
-        {errorCertificates && (
-          <ContainerMessageMore>
-            <ErrorMessageMore>
-              Sorry, only 5 certificates are allowed.
-            </ErrorMessageMore>
-            <ErrorMessageMore>
-              You can remove one certificate instead.
-            </ErrorMessageMore>
-          </ContainerMessageMore>
-        )}
+          {errorCertificates && (
+            <ContainerMessageMore>
+              <ErrorMessageMore>
+                Sorry, only 5 certificates are allowed.
+              </ErrorMessageMore>
+              <ErrorMessageMore>
+                You can remove one certificate instead.
+              </ErrorMessageMore>
+            </ContainerMessageMore>
+          )}
 
-        {invalidLink && (
-          <ContainerMessageMore>
-            <ErrorMessageMore>
-              Empty certificate is not allowed.
-            </ErrorMessageMore>
-          </ContainerMessageMore>
-        )}
-      </ContainerButtonsMore>
+          {invalidLink && (
+            <ContainerMessageMore>
+              <ErrorMessageMore>
+                Empty certificate is not allowed.
+              </ErrorMessageMore>
+            </ContainerMessageMore>
+          )}
+        </ContainerAddCertificates>
+      </ContainerButtonsCertificatesMore>
 
       <ContainerTeamname>
         <Input

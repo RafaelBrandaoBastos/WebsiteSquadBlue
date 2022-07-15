@@ -13,14 +13,14 @@ export const ContainerCertificates = styled.div`
   position: relative;
   padding-bottom: 2.5rem;
 `;
-export const ContainerButtonsMessage = styled.div`
-  min-height: 8.8rem;
-`;
-export const ContainerButtonsCertificatesMore = styled.div`
+export const ContainerCertificatesList = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  min-height: 4rem;
+  flex-direction: column;
+`;
+export const ContainerAddCertificates = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 export const ContainerMessageMore = styled.div`
   max-height: 4.7rem;
@@ -61,8 +61,11 @@ export const ContainerGraduation = styled.div`
   padding-bottom: 2.5rem;
 `;
 
-export const ContainerButtonsMore = styled.div`
+export const ContainerButtonsCertificatesMore = styled.div`
   min-height: 8.8rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `;
 export const ErrorMessage = styled.span`
   position: absolute;
