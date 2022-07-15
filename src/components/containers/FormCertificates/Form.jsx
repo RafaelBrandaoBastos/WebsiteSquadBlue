@@ -18,16 +18,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { TabsContext } from "../../../contexts/TabsProvider";
 import { UserDataContext } from "../../../contexts/UserDataProvider";
+import Button from "../../micro/Button/Button";
 
 const schema = yup
   .object({
-    certificates: yup
-      .string()
-      .required("Please enter your Certificates")
-      .matches(
-        /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
-        "Certificate Link Invalid"
-      ),
+    certificates: yup.string(),
     teamname: yup
       .string()
       .required("Please enter your Team Name")
@@ -57,6 +52,7 @@ const FormCertificates = () => {
   const [userData, setUserData] = useContext(UserDataContext);
   const [certificates, setCertificates] = useState([]);
   const [errorCertificates, setErrorCertificates] = useState(false);
+  const [invalidLink, setInvalidLink] = useState(false);
 
   const {
     getValues,
@@ -106,12 +102,21 @@ const FormCertificates = () => {
     }
   });
 
-  const addingcertificates = () => {
+  const addCertificate = () => {
     const certificate = getValues("certificates");
-    if (certificates.length < 5) {
-      setCertificates((lastValues) => [...lastValues, certificate]);
+    if (
+      certificate.match(
+        /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
+      )
+    ) {
+      setInvalidLink(false);
+      if (certificates.length < 5) {
+        setCertificates((lastValues) => [...lastValues, certificate]);
+      } else {
+        setErrorCertificates(true);
+      }
     } else {
-      setErrorCertificates(true);
+      setInvalidLink(true);
     }
   };
 
@@ -127,19 +132,12 @@ const FormCertificates = () => {
           placeholder="https://www.Certificate.com"
           {...{ register: register("certificates") }}
         />
-        <ErrorMessage style={{ left: "80px" }}>
-          {errors.certificates?.message}
-        </ErrorMessage>
       </ContainerCertificates>
 
       <ContainerButtonsMore>
         <ContainerButtonsCertificatesMore>
           <Button name="Certificates" type="button" />
-          <Button
-            name="More"
-            type="button"
-            onClick={() => addingcertificates()}
-          />
+          <Button name="More" type="button" onClick={() => addCertificate()} />
         </ContainerButtonsCertificatesMore>
 
         {errorCertificates && (
@@ -149,6 +147,14 @@ const FormCertificates = () => {
             </ErrorMessageMore>
             <ErrorMessageMore>
               You can remove one certificate instead.
+            </ErrorMessageMore>
+          </ContainerMessageMore>
+        )}
+
+        {invalidLink && (
+          <ContainerMessageMore>
+            <ErrorMessageMore>
+              Empty certificate is not allowed.
             </ErrorMessageMore>
           </ContainerMessageMore>
         )}

@@ -23,9 +23,7 @@ export const ContainerButtonsCertificatesMore = styled.div`
   min-height: 4rem;
 `;
 export const ContainerMessageMore = styled.div`
-  margin-top: 0.5rem;
-  height: 4.7rem;
-  margin-bottom: 1.1rem;
+  max-height: 4.7rem;
   align-self: flex-end;
   display: flex;
   flex-direction: column;
