@@ -49,30 +49,6 @@ export const ButtonMoreStyled = styled.button`
   }
 `;
 
-export const ContainerMessageMore = styled.div`
-  margin-top: 0.5rem;
-  height: 4.7rem;
-  margin-bottom: 1.1rem;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-
-export const ErrorMessageMore = styled.span`
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  color: #ff0000;
-
-  @media (max-width: 600px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 396px) {
-    font-size: 0.8rem;
-  }
-`;
-
 export const ButtonFinishStyled = styled.button`
   width: 9.1rem;
   height: 4rem;
