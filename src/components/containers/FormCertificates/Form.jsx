@@ -10,6 +10,7 @@ import {
   ContainerMessageMore,
   ErrorMessageMore,
   ContainerCertificatesList,
+  ContainerButtonRemoveCertificate,
   ContainerTeamname,
   ContainerInstitution,
   ContainerGraduation,
@@ -138,11 +139,13 @@ const FormCertificates = () => {
       <ContainerButtonsCertificatesMore>
         <ContainerCertificatesList>
           <Button name="Certificates" type="button" />
-          {certificates.map((certificate, index) => (
-            <Button name="RemoveCertificate" type="button" key={index}>
-              {certificate}
-            </Button>
-          ))}
+          <ContainerButtonRemoveCertificate>
+            {certificates.map((certificate, index) => (
+              <Button name="RemoveCertificate" type="button" key={index}>
+                {certificate}
+              </Button>
+            ))}
+          </ContainerButtonRemoveCertificate>
         </ContainerCertificatesList>
 
         <ContainerAddCertificates>

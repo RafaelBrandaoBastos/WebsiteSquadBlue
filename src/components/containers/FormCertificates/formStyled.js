@@ -16,6 +16,15 @@ export const ContainerCertificates = styled.div`
 export const ContainerCertificatesList = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
+`;
+export const ContainerButtonRemoveCertificate = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 4rem;
+  background: rgba(7, 78, 232, 0.8);
+  border-radius: 4px;
+  margin-top: -0.5rem;
 `;
 export const ContainerAddCertificates = styled.div`
   display: flex;
