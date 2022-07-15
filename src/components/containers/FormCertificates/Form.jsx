@@ -118,6 +118,7 @@ const FormCertificates = () => {
             setInvalidLink(false);
             if (certificates.length < 5) {
                 setCertificates((lastValues) => [...lastValues, certificate]);
+                setErrorCertificates(false);
             } else {
                 setErrorCertificates(true);
             }
