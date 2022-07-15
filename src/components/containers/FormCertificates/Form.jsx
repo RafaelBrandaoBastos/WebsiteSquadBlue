@@ -137,6 +137,11 @@ const FormCertificates = () => {
       <ContainerButtonsMore>
         <ContainerButtonsCertificatesMore>
           <Button name="Certificates" type="button" />
+          {certificates.map((certificate, index) => (
+            <Button name="RemoveCertificate" type="button" key={index}>
+              {certificate}
+            </Button>
+          ))}
           <Button name="More" type="button" onClick={() => addCertificate()} />
         </ContainerButtonsCertificatesMore>
 
