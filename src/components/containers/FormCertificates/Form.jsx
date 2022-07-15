@@ -67,7 +67,7 @@ const FormCertificates = () => {
     } = useForm({resolver: yupResolver(schema)});
 
     const onSubmit = (data) => {
-        setUserData({...userData, ...data});
+        setUserData({...userData, ...data, certificates});
         setSelectedTab(selectedTab + 1);
         SetData();
     };
