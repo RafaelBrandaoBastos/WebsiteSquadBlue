@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-import NextIcon from '../../../assets/nextIcon.svg';
-import CheckIcon from '../../../assets/checkIcon.svg';
-import IconCertificates from '../../../assets/iconCertificates.svg';
+import styled from "styled-components";
+import NextIcon from "../../../assets/nextIcon.svg";
+import CheckIcon from "../../../assets/checkIcon.svg";
+import IconCertificates from "../../../assets/iconCertificates.svg";
 
 export const ButtonNextStyled = styled.button`
-
   width: 8.1rem;
   height: 4rem;
   background: #074ee8;
@@ -42,6 +41,11 @@ export const ButtonMoreStyled = styled.button`
   &:hover {
     cursor: pointer;
     background-color: #20b7d8;
+  }
+
+  @media (max-width: 350px) {
+    width: 8rem;
+    font-size: 1rem;
   }
 `;
 
@@ -82,6 +86,23 @@ export const ButtonCertificatesStyled = styled(ButtonMoreStyled)`
   background-size: contain;
   padding-left: 4.1rem;
   justify-content: left;
+
+  @media (max-width: 350px) {
+    width: 9.35rem;
+    padding-left: 1rem;
+    background-position: 7.35em;
+  }
+`;
+
+export const ContainerRemoveCertificates = styled.div`
+  width: 18.7rem;
+  height: 3.6rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 1.4rem 0.9rem 0.9rem 0.5rem;
+  justify-content: space-between;
+  margin-top: -0.8rem;
 `;
 
 export const LinkCertificates = styled.p`
@@ -93,6 +114,7 @@ export const LinkCertificates = styled.p`
   height: 2rem;
   width: 14.9rem;
 `;
+
 export const ButtonRemoveCertificates = styled.button`
   width: 1.4rem;
   height: 1.3rem;
@@ -104,16 +126,3 @@ export const ButtonRemoveCertificates = styled.button`
     cursor: pointer;
   }
 `;
-
-export const ContainerRemoveCertificates = styled.div`
-  width: 18.7rem;
-  height: 3.6rem;
-  background: rgba(7, 78, 232, 0.8);
-  border-radius: 0.4rem;
-  display: flex;
-  align-items: center;
-  padding: 1.4rem 0.9rem 0.9rem 0.5rem;
-  justify-content: space-between;
-  margin-top: -0.5rem;
-`;
-

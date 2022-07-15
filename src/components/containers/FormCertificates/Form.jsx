@@ -1,42 +1,62 @@
 import React, {useContext, useEffect, useState} from 'react';
-import Input from "../../micro/Input/Input"
-import {Form, ErrorMessage, ContainerButton, ContainerCertificates, ContainerButtonsCertificatesMore, ContainerTeamname, ContainerInstitution, ContainerGraduation} from "./formStyled.js"
+import Input from '../../micro/Input/Input';
+import {
+    Form,
+    ErrorMessage,
+    ContainerButton,
+    ContainerCertificates,
+    ContainerButtonsCertificatesMore,
+    ContainerAddCertificates,
+    ContainerMessageMore,
+    ErrorMessageMore,
+    ContainerCertificatesList,
+    ContainerButtonRemoveCertificate,
+    ContainerTeamname,
+    ContainerInstitution,
+    ContainerGraduation,
+} from './formStyled.js';
 import * as yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
-import Button from '../../micro/Button/Button';
 import {UserDataContext} from '../../../contexts/UserDataProvider';
+import Button from '../../micro/Button/Button';
 
 const schema = yup
     .object({
-        certificates: yup
-            .string()
-            .required('Please enter your Certificates')
-            .matches(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/, 'Certificate Link Invalid'),
-            teamname: yup
+        certificates: yup.string(),
+        teamname: yup
             .string()
             .required('Please enter your Team Name')
-            .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,'Team Name Invalid'),
-            institution: yup
+            .matches(
+                /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,
+                'Team Name Invalid',
+            ),
+        institution: yup
             .string()
             .required('Please enter your Institution')
-            .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,'Institution Name Invalid'),
-            graduation: yup
+            .matches(
+                /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,
+                'Institution Name Invalid',
+            ),
+        graduation: yup
             .string()
             .required('Please enter your Graduation')
-            .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,'Graduation Name Invalid'),
+            .matches(
+                /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,
+                'Graduation Name Invalid',
+            ),
     })
     .required();
-    
-    
-const FormCertificates = ()=>{
 
-    
-
+const FormCertificates = () => {
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
     const [userData, setUserData] = useContext(UserDataContext);
-    console.log(userData)
+    const [certificates, setCertificates] = useState([]);
+    const [errorCertificates, setErrorCertificates] = useState(false);
+    const [invalidLink, setInvalidLink] = useState(false);
+    const [showCertificates, setShowCertificates] = useState(false);
+
     const {
         getValues,
         register,
@@ -50,32 +70,34 @@ const FormCertificates = ()=>{
         setUserData({...userData, ...data});
         setSelectedTab(selectedTab + 1);
         SetData();
-        console.log(userData)
-    }
-    
-    const SetData = () => {
-        localStorage.setItem("StorageCertificates", JSON.stringify(getValues()));
     };
 
+    const SetData = () => {
+        localStorage.setItem(
+            'StorageCertificates',
+            JSON.stringify(getValues()),
+        );
+    };
 
     const GetData = () => {
-        if (localStorage.getItem("StorageCertificates")) { 
-            const StorageData = JSON.parse(localStorage.getItem("StorageCertificates"));
+        if (localStorage.getItem('StorageCertificates')) {
+            const StorageData = JSON.parse(
+                localStorage.getItem('StorageCertificates'),
+            );
             const keys = Object.keys(StorageData);
             keys.forEach((key) => {
-                setValue(key, StorageData[key])
-            })
+                setValue(key, StorageData[key]);
+            });
         }
-    }
+    };
 
     useEffect(() => {
-        GetData()
-        window.addEventListener('beforeunload', SetData()); 
-        return() => {
-            window.removeEventListener('beforeunload', SetData());     
-        }
+        GetData();
+        window.addEventListener('beforeunload', SetData());
+        return () => {
+            window.removeEventListener('beforeunload', SetData());
+        };
     }, []);
-    
 
     useEffect(() => {
         if (userData) {
@@ -86,59 +108,139 @@ const FormCertificates = ()=>{
         }
     });
 
-    return( 
+    const addCertificate = () => {
+        const certificate = getValues('certificates');
+        if (
+            certificate.match(
+                /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/,
+            )
+        ) {
+            setInvalidLink(false);
+            if (certificates.length < 5) {
+                setCertificates((lastValues) => [...lastValues, certificate]);
+            } else {
+                setErrorCertificates(true);
+            }
+        } else {
+            setInvalidLink(true);
+        }
+    };
+
+    const removeCertificate = (index) => {
+        setCertificates(
+            certificates
+                .slice(0, index)
+                .concat(certificates.slice(index + 1, certificates.length)),
+        );
+    };
+
+    console.log(certificates);
+
+    return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <ContainerCertificates>
-                <Input 
-                width="100%" 
-                label = "Certificates" 
-                type="text" 
-                placeholder="https://www.Certificate.com" 
-                {...{register: register('certificates')}}                
+                <Input
+                    width='100%'
+                    label='Certificates'
+                    type='text'
+                    placeholder='https://www.Certificate.com'
+                    {...{register: register('certificates')}}
                 />
-                <ErrorMessage style={{left: '80px'}}>{errors.certificates?.message}</ErrorMessage> 
             </ContainerCertificates>
-            
+
             <ContainerButtonsCertificatesMore>
-                <Button name="Certificates" type="submit"/>
-                <Button name="More" type="submit" />
+                <ContainerCertificatesList>
+                    <Button
+                        name='Certificates'
+                        type='button'
+                        onClick={() => setShowCertificates(!showCertificates)}
+                    />
+                    <ContainerButtonRemoveCertificate>
+                        {showCertificates &&
+                            certificates.map((certificate, index) => (
+                                <Button
+                                    name='RemoveCertificate'
+                                    type='button'
+                                    key={index}
+                                    onClick={() => removeCertificate(index)}
+                                >
+                                    {certificate}
+                                </Button>
+                            ))}
+                    </ContainerButtonRemoveCertificate>
+                </ContainerCertificatesList>
+
+                <ContainerAddCertificates>
+                    <Button
+                        name='More'
+                        type='button'
+                        onClick={() => addCertificate()}
+                    />
+
+                    {errorCertificates && (
+                        <ContainerMessageMore>
+                            <ErrorMessageMore>
+                                Sorry, only 5 certificates are allowed.
+                            </ErrorMessageMore>
+                            <ErrorMessageMore>
+                                You can remove one certificate instead.
+                            </ErrorMessageMore>
+                        </ContainerMessageMore>
+                    )}
+
+                    {invalidLink && (
+                        <ContainerMessageMore>
+                            <ErrorMessageMore>
+                                Empty certificate is not allowed.
+                            </ErrorMessageMore>
+                        </ContainerMessageMore>
+                    )}
+                </ContainerAddCertificates>
             </ContainerButtonsCertificatesMore>
 
             <ContainerTeamname>
-                <Input 
-                width="100%" 
-                label = "Team Name" 
-                type="text" 
-                placeholder="Team Green" 
-                {...{register: register('teamname')}}/>
-                <ErrorMessage style={{left: '80px'}}>{errors.teamname?.message}</ErrorMessage>
+                <Input
+                    width='100%'
+                    label='Team Name'
+                    type='text'
+                    placeholder='Team Green'
+                    {...{register: register('teamname')}}
+                />
+                <ErrorMessage style={{left: '80px'}}>
+                    {errors.teamname?.message}
+                </ErrorMessage>
             </ContainerTeamname>
 
             <ContainerInstitution>
-                <Input 
-                width="100%" 
-                label = "Institution" 
-                type="text" 
-                placeholder="Universidade Federal da Paraíba" 
-                {...{register: register('institution')}}/>
-                <ErrorMessage style={{left: '80px'}}>{errors.institution?.message}</ErrorMessage>
+                <Input
+                    width='100%'
+                    label='Institution'
+                    type='text'
+                    placeholder='Universidade Federal da Paraíba'
+                    {...{register: register('institution')}}
+                />
+                <ErrorMessage style={{left: '80px'}}>
+                    {errors.institution?.message}
+                </ErrorMessage>
             </ContainerInstitution>
 
             <ContainerGraduation>
-                <Input 
-                width="100%" 
-                label = "Graduation" 
-                type="text" placeholder="Ciências da Computação" 
-                {...{register: register('graduation')}}/>
-                <ErrorMessage style={{left: '80px'}}>{errors.graduation?.message}</ErrorMessage>
+                <Input
+                    width='100%'
+                    label='Graduation'
+                    type='text'
+                    placeholder='Ciências da Computação'
+                    {...{register: register('graduation')}}
+                />
+                <ErrorMessage style={{left: '80px'}}>
+                    {errors.graduation?.message}
+                </ErrorMessage>
             </ContainerGraduation>
 
             <ContainerButton>
-                <Button name='Finish' type='submit'/>
-            </ContainerButton>     
-        </Form> 
-    )  
-}; 
+                <Button name='Finish' type='submit' />
+            </ContainerButton>
+        </Form>
+    );
+};
 export default FormCertificates;
-
-

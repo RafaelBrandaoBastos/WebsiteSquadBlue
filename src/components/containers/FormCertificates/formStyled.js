@@ -13,11 +13,43 @@ export const ContainerCertificates = styled.div`
   position: relative;
   padding-bottom: 2.5rem;
 `;
-export const ContainerButtonsCertificatesMore = styled.div`
+export const ContainerCertificatesList = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  min-height: 7.7rem;
+  flex-direction: column;
+  position: relative;
+`;
+export const ContainerButtonRemoveCertificate = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 4rem;
+  background: rgba(7, 78, 232, 0.8);
+  border-radius: 4px;
+  margin-top: -0.5rem;
+`;
+export const ContainerAddCertificates = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+export const ContainerMessageMore = styled.div`
+  max-height: 4.7rem;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+export const ErrorMessageMore = styled.span`
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #ff0000;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 396px) {
+    font-size: 0.8rem;
+  }
 `;
 export const ContainerTeamname = styled.div`
   display: flex;
@@ -38,10 +70,19 @@ export const ContainerGraduation = styled.div`
   padding-bottom: 2.5rem;
 `;
 
+export const ContainerButtonsCertificatesMore = styled.div`
+  min-height: 8.8rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 export const ErrorMessage = styled.span`
   position: absolute;
   font-size: 1.4rem;
   color: red;
+  @media (max-width: 300px) {
+    font-size: 1.2rem;
+  }
 `;
 export const ContainerButton = styled.div`
   display: flex;
