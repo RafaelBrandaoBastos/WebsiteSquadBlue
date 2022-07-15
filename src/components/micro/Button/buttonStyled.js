@@ -97,13 +97,12 @@ export const ButtonCertificatesStyled = styled(ButtonMoreStyled)`
 export const ContainerRemoveCertificates = styled.div`
   width: 18.7rem;
   height: 3.6rem;
-  background: rgba(7, 78, 232, 0.8);
-  border-radius: 0.4rem;
+  background: transparent;
   display: flex;
   align-items: center;
   padding: 1.4rem 0.9rem 0.9rem 0.5rem;
   justify-content: space-between;
-  margin-top: -0.5rem;
+  margin-top: -0.8rem;
 `;
 
 export const LinkCertificates = styled.p`
