@@ -22,6 +22,28 @@ export const ContainerButtonsCertificatesMore = styled.div`
   justify-content: space-between;
   min-height: 4rem;
 `;
+export const ContainerMessageMore = styled.div`
+  margin-top: 0.5rem;
+  height: 4.7rem;
+  margin-bottom: 1.1rem;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+export const ErrorMessageMore = styled.span`
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  color: #ff0000;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 396px) {
+    font-size: 0.8rem;
+  }
+`;
 export const ContainerTeamname = styled.div`
   display: flex;
   width: 100%;
