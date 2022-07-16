@@ -1,24 +1,28 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const MainContainer = styled.form`
+export const MainContainer = styled.div`
     height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: space-around;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
+    gap: 1.2rem;
 `;
 
 export const Text = styled.div`
-    width: 100%;
-    font-size: 16px;
-    line-height: 18px;
-    line-height: 82%;
-    padding-bottom: 2.5rem;
+    font-size: 1.6rem;
 `;
 export const ContainerButton = styled.div`
     display: flex;
     width: 100%;
     justify-content: flex-end;
     align-items: flex-end;
+`;
+
+export const CertificatesContainer = styled.div`
+    display: flex;
+    gap: 1.5rem;
+`;
+
+export const Certificates = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
