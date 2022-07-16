@@ -9,6 +9,7 @@ export const MainContainer = styled.div`
 
 export const Text = styled.div`
     font-size: 1.6rem;
+    width: max-content;
 `;
 export const ContainerButton = styled.div`
     display: flex;
