@@ -1,5 +1,4 @@
 import React, {useContext, useEffect} from 'react';
-import * as yup from 'yup';
 import Input from '../../micro/Input/Input';
 import Button from '../../micro/Button/Button';
 import Checkbox from '../../micro/Checkbox/Checkbox';
@@ -27,57 +26,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
 import {UserDataContext} from '../../../contexts/UserDataProvider';
 import {phoneMask} from '../../../utils/phoneMask';
-
-const schema = yup
-    .object({
-        name: yup
-            .string()
-            .required('Please enter your Name')
-            .matches(/^[a-zA-Zà-úÀ-Ú]+(?:\s[a-zA-Zà-úÀ-Ú]+)+$/, 'Fullname invalid'),
-        nickname: yup.string().matches(),
-        email: yup
-            .string()
-            .required('Please enter your Email')
-            .matches(
-                /^[a-z0-9._-]+(?:\.[a-z0-9._-]+)*@(?:[a-z0-9](?:[a-z-]*[a-z])?.)+[a-z](?:[a-z]*[a-z]){1,}?$/,
-                'Email invalid',
-            ),
-        phone: yup.string().optional().matches(),
-
-        day: yup
-            .number()
-            .positive()
-            .integer()
-            .min(1)
-            .max(31)
-            .required('Please enter your age')
-            .typeError('Please enter your age'),
-        month: yup
-            .number()
-            .positive()
-            .integer()
-            .min(1)
-            .max(12)
-            .required('Please enter your age')
-            .typeError('Please enter your age'),
-        year: yup
-            .number()
-            .positive()
-            .integer()
-            .min(1901)
-            .max(2004)
-            .required('Please enter your age')
-            .typeError('Please enter your age'),
-        age: yup
-            .number()
-            .positive()
-            .integer()
-            .required('Please enter your age')
-            .typeError('Please enter your age'),
-
-        checkbox: yup.boolean().isTrue('Please confirm the terms'),
-    })
-    .required();
+import {formBasicSchema} from '../../../utils/yupSchema';
 
 const FormBasic = () => {
     const [userData, setUserData] = useContext(UserDataContext);
@@ -90,7 +39,7 @@ const FormBasic = () => {
         formState: {errors},
         setValue,
         getValues,
-    } = useForm({resolver: yupResolver(schema)});
+    } = useForm({resolver: yupResolver(formBasicSchema)});
 
     const watchFields = watch(['month', 'day', 'year']);
 
@@ -137,12 +86,11 @@ const FormBasic = () => {
     };
 
     useEffect(() => {
-
-        GetData()
-        window.addEventListener('beforeunload', SetData()); 
-        return() => {
-            window.removeEventListener('beforeunload', SetData());     
-        }
+        GetData();
+        window.addEventListener('beforeunload', SetData());
+        return () => {
+            window.removeEventListener('beforeunload', SetData());
+        };
     }, []);
 
     return (
