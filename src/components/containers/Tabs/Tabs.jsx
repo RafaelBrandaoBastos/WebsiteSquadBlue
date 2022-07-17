@@ -1,10 +1,10 @@
 import {useContext} from 'react';
 import {Tab, TabGroup} from './tabsStyled';
 import {TabsContext} from '../../../contexts/TabsProvider';
-import FormCertificates from '../../containers/FormCertificates/Form';
-import FormBasic from '../../containers/FormBasic/Form';
-import FormSocial from '../../containers/FormSocial/Form';
-import FormSucess from '../../containers/FormSucess/Form';
+import FormCertificates from '../FormCertificates/FormCertificates';
+import FormBasic from '../FormBasic/FormBasic';
+import FormSocial from '../FormSocial/FormSocial';
+import FormSucess from '../FormSucess/FormSucess';
 
 const options = ['Basic', 'Social', 'Certificates'];
 
@@ -16,7 +16,7 @@ const Tabs = () => {
 
     return (
         <>
-            <TabGroup className={selectedTab === 3 && "none"}>
+            <TabGroup className={selectedTab === 3 && 'none'}>
                 {options.map((option, index) => (
                     <Tab
                         disabled={selectedTab < index}
