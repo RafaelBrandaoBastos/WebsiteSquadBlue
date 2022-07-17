@@ -15,39 +15,12 @@ import {
     ContainerInstitution,
     ContainerGraduation,
 } from './formStyled.js';
-import * as yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TabsContext} from '../../../contexts/TabsProvider';
 import {UserDataContext} from '../../../contexts/UserDataProvider';
 import Button from '../../micro/Button/Button';
-
-const schema = yup
-    .object({
-        certificates: yup.string(),
-        teamname: yup
-            .string()
-            .required('Please enter your Team Name')
-            .matches(
-                /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,
-                'Team Name Invalid',
-            ),
-        institution: yup
-            .string()
-            .required('Please enter your Institution')
-            .matches(
-                /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,
-                'Institution Name Invalid',
-            ),
-        graduation: yup
-            .string()
-            .required('Please enter your Graduation')
-            .matches(
-                /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'-\s]+$/,
-                'Graduation Name Invalid',
-            ),
-    })
-    .required();
+import {formCertificatesSchema} from '../../../utils/yupSchema';
 
 const FormCertificates = () => {
     const [selectedTab, setSelectedTab] = useContext(TabsContext);
@@ -64,7 +37,7 @@ const FormCertificates = () => {
         watch,
         formState: {errors},
         setValue,
-    } = useForm({resolver: yupResolver(schema)});
+    } = useForm({resolver: yupResolver(formCertificatesSchema)});
 
     const onSubmit = (data) => {
         setUserData({...userData, ...data, certificates});
