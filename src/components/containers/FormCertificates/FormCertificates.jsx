@@ -180,7 +180,7 @@ const FormCertificates = () => {
                     placeholder='Team Green'
                     {...{register: register('teamname')}}
                 />
-                <ErrorMessage style={{left: '80px'}}>
+                <ErrorMessage style={{left: '90px'}}>
                     {errors.teamname?.message}
                 </ErrorMessage>
             </ContainerTeamname>
@@ -193,7 +193,7 @@ const FormCertificates = () => {
                     placeholder='Universidade Federal da Paraíba'
                     {...{register: register('institution')}}
                 />
-                <ErrorMessage style={{left: '80px'}}>
+                <ErrorMessage style={{left: '90px'}}>
                     {errors.institution?.message}
                 </ErrorMessage>
             </ContainerInstitution>
@@ -206,7 +206,7 @@ const FormCertificates = () => {
                     placeholder='Ciências da Computação'
                     {...{register: register('graduation')}}
                 />
-                <ErrorMessage style={{left: '80px'}}>
+                <ErrorMessage style={{left: '90px'}}>
                     {errors.graduation?.message}
                 </ErrorMessage>
             </ContainerGraduation>
