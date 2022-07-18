@@ -160,7 +160,7 @@ const FormBasic = () => {
             <ContainerBirthday>
                 <Label>Birthday *</Label>
                 {(errors.day || errors.month || errors.year) && (
-                    <ErrorMessage style={{left: '80px'}}>
+                    <ErrorMessage style={{left: '85px'}}>
                         Please enter your age
                     </ErrorMessage>
                 )}
