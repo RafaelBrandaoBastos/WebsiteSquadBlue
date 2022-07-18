@@ -175,7 +175,7 @@ const FormCertificates = () => {
             <ContainerTeamname>
                 <Input
                     width='100%'
-                    label='Team Name'
+                    label='Team Name *'
                     type='text'
                     placeholder='Team Green'
                     {...{register: register('teamname')}}
@@ -188,7 +188,7 @@ const FormCertificates = () => {
             <ContainerInstitution>
                 <Input
                     width='100%'
-                    label='Institution'
+                    label='Institution *'
                     type='text'
                     placeholder='Universidade Federal da Paraíba'
                     {...{register: register('institution')}}
@@ -201,7 +201,7 @@ const FormCertificates = () => {
             <ContainerGraduation>
                 <Input
                     width='100%'
-                    label='Graduation'
+                    label='Graduation *'
                     type='text'
                     placeholder='Ciências da Computação'
                     {...{register: register('graduation')}}
