@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Section404, Displayed404 } from "./ErrorPageStyled";
 import { useNavigate } from "react-router-dom";
-import gifError from "../src/assets/gifError404.gif";
+import gifError from "../assets/gifError404.gif";
 
 export default function ErrorPage404() {
   const navigate = useNavigate();
