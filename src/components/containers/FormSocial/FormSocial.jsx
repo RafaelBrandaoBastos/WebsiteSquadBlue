@@ -84,7 +84,7 @@ const FormSocial = () => {
             <ContainerGithub>
                 <Input
                     width='100%'
-                    label='Github'
+                    label='Github *'
                     type='text'
                     placeholder='https://github.com/foobar'
                     {...{register: register('github')}}
