@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const ContainerHeader = styled.header`
-    height: 18rem;
+    height: 13rem;
     width: 100%;
     background: #e5e5e5;
-    padding: 5.15rem 7.11rem 5.25rem 11.8rem;
+    padding: 2rem 7.11rem 2rem 11.8rem;
     border-bottom: 1px solid #aaaaaa;
     display: flex;
     flex-direction: column;
