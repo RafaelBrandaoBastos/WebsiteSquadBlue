@@ -98,7 +98,7 @@ const FormBasic = () => {
             <ContainerName>
                 <Input
                     width='100%'
-                    label='Full Name'
+                    label='Full Name *'
                     type='text'
                     placeholder='Foo Bar'
                     {...{register: register('name')}}
@@ -113,7 +113,7 @@ const FormBasic = () => {
             <ContainerNickname>
                 <Input
                     width='100%'
-                    label='Nickname'
+                    label='Nickname '
                     type='text'
                     placeholder='Juanito'
                     {...{register: register('nickname')}}
@@ -129,7 +129,7 @@ const FormBasic = () => {
                 <ContainerEmail>
                     <Input
                         width='100%'
-                        label='Email'
+                        label='Email *'
                         type='text'
                         placeholder='foo@bar.com'
                         {...{register: register('email')}}
@@ -158,7 +158,7 @@ const FormBasic = () => {
             </ContainerEmailPhone>
 
             <ContainerBirthday>
-                <Label>Birthday</Label>
+                <Label>Birthday *</Label>
                 {(errors.day || errors.month || errors.year) && (
                     <ErrorMessage style={{left: '80px'}}>
                         Please enter your age
