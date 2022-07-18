@@ -180,7 +180,7 @@ const FormCertificates = () => {
                     placeholder='Team Green'
                     {...{register: register('teamname')}}
                 />
-                <ErrorMessage style={{left: '90px'}}>
+                <ErrorMessage style={{left: '88px'}}>
                     {errors.teamname?.message}
                 </ErrorMessage>
             </ContainerTeamname>
