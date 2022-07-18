@@ -85,10 +85,9 @@ export const formSocialSchema = yup
     .object({
         linkedin: yup
             .string()
-            .required('Please enter your Linkedin account')
             .matches(
                 /^(http(s)?:\/\/)?([\w]+\.)?linkedin\.com\/(pub|in|profile)/,
-                'Linkedin Invalid',
+                {message: 'Linkedin Invalid', excludeEmptyString: true},
             ),
         github: yup
             .string()
