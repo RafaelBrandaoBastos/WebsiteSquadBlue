@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Section404, Displayed404 } from "./ErrorPageStyled";
 import { useNavigate } from "react-router-dom";
+import gifError from "../src/assets/gifError404.gif";
 
 export default function ErrorPage404() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function ErrorPage404() {
 
   return (
     <Section404>
-      <Displayed404 src={"../src/assets/gifError404.gif"} />
+      <Displayed404 src={gifError} />
       <p>Redirecting in {countdown} seconds</p>
     </Section404>
   );
